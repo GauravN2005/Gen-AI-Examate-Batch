@@ -1,10 +1,23 @@
 
-from data.sample_records import records
+import json
+from pathlib import Path
+
+
+RECORDS_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "data"
+    / "data"
+    / "sample_records.json"
+)
 
 
 def load_records():
-    """Return all educational records."""
-    return records
+    """Return all educational records from the JSON data file."""
+    with RECORDS_FILE.open(encoding="utf-8-sig") as file:
+        return json.load(file)
+
+
+records = load_records()
 
 
 def search(keyword):

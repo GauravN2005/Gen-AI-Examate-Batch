@@ -1,8 +1,4 @@
-SEBI_SOURCE = "https://www.sebi.gov.in/"
-
-records = [
-
-    # MODULE 4 - 4 CHAPTER RECORDS
+﻿[
     {
         "id": "M4C1",
         "concept": "Module 4 - Chapter 1",
@@ -11,7 +7,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 4 - Chapter 1",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M4C2",
@@ -21,7 +17,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 4 - Chapter 2",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M4C3",
@@ -31,7 +27,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 4 - Chapter 3",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M4C4",
@@ -41,10 +37,8 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 4 - Chapter 4",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
-
-    # MODULE 3 - 5 CHAPTER RECORDS
     {
         "id": "M3C1",
         "concept": "Module 3 - Chapter 1",
@@ -53,7 +47,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 3 - Chapter 1",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M3C2",
@@ -63,7 +57,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 3 - Chapter 2",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M3C3",
@@ -73,7 +67,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 3 - Chapter 3",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M3C4",
@@ -83,7 +77,7 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 3 - Chapter 4",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "M3C5",
@@ -93,10 +87,8 @@ records = [
         "example": "Add an example based on the chapter.",
         "module_chapter": "Module 3 - Chapter 5",
         "risk_warning": "Add the relevant caution from the source.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
-
-    # GLOSSARY - 11 RECORDS
     {
         "id": "G01",
         "concept": "NAV",
@@ -105,7 +97,7 @@ records = [
         "example": "If NAV is Rs. 20, one unit has a stated NAV of Rs. 20.",
         "module_chapter": "Glossary",
         "risk_warning": "NAV alone does not indicate whether a fund is good or bad.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G02",
@@ -115,7 +107,7 @@ records = [
         "example": "An expense ratio of 1% represents annual expenses equivalent to 1% of the applicable assets.",
         "module_chapter": "Glossary",
         "risk_warning": "Expenses reduce the returns available to investors.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G03",
@@ -125,7 +117,7 @@ records = [
         "example": "An investor purchases a scheme directly through the AMC.",
         "module_chapter": "Glossary",
         "risk_warning": "Direct plans do not remove investment risk.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G04",
@@ -135,7 +127,7 @@ records = [
         "example": "An investor purchases a scheme through a mutual fund distributor.",
         "module_chapter": "Glossary",
         "risk_warning": "Regular plans generally include distributor commissions in scheme expenses.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G05",
@@ -145,7 +137,7 @@ records = [
         "example": "The six levels are Low, Low to Moderate, Moderate, Moderately High, High and Very High.",
         "module_chapter": "Glossary",
         "risk_warning": "Risk levels can change. A Riskometer does not guarantee future performance.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G06",
@@ -155,7 +147,7 @@ records = [
         "example": "An investor completes the required identity and address verification.",
         "module_chapter": "Glossary",
         "risk_warning": "Never share OTPs or sensitive credentials with unknown people.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G07",
@@ -165,7 +157,7 @@ records = [
         "example": "An investor reads the scheme objective, risks and expenses in its SID.",
         "module_chapter": "Glossary",
         "risk_warning": "Read the complete scheme information before making an investment decision.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G08",
@@ -175,7 +167,7 @@ records = [
         "example": "An investor registers an eligible family member as nominee.",
         "module_chapter": "Glossary",
         "risk_warning": "Nomination does not automatically determine legal ownership or inheritance rights.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G09",
@@ -185,7 +177,7 @@ records = [
         "example": "A fixed amount is transferred periodically from one scheme to another.",
         "module_chapter": "Glossary",
         "risk_warning": "Transfers may have market, tax and exit-load implications.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G10",
@@ -195,7 +187,7 @@ records = [
         "example": "An investor requests a periodic withdrawal of Rs. 1,000.",
         "module_chapter": "Glossary",
         "risk_warning": "Withdrawals can reduce the remaining investment value.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     },
     {
         "id": "G11",
@@ -205,6 +197,7 @@ records = [
         "example": "A scheme may charge an exit load if units are redeemed before its specified holding period.",
         "module_chapter": "Glossary",
         "risk_warning": "Check the scheme's applicable exit-load conditions before redemption.",
-        "source_url": SEBI_SOURCE
+        "source_url": "https://www.sebi.gov.in/"
     }
 ]
+
