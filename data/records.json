@@ -1,0 +1,34 @@
+[
+    {
+        "concept": "Mutual Funds: What They Are and How They Work",
+        "plain_definition": "Explain how a mutual fund works and what NAV means",
+        "example": "Worked Example — what 1% a year actually costs",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "What it does not do is remove risk. A mutual fund investing in equity carries equity risk, in full. Diversification within the fund removes company-specific risk, not market risk. That distinction was drawn earlier and is worth re-reading if it has not stuck.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Choosing a Mutual Fund Scheme",
+        "plain_definition": "Navigate the main categories of mutual fund and match them to your goals",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Read a Risk-o-meter and know where to find a scheme’s real details",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Investing on Autopilot: SIP, STP and SWP",
+        "plain_definition": "Set up a SIP and explain what rupee cost averaging does and does not do",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Five Rules That Protect You",
+        "plain_definition": "Not a fund manager, not an adviser, not an app, not SEBI. A guaranteed or “assured” return in the securities market is the single most reliable sign of a fraud. Bank deposits and small savings schemes carry fixed rates; market-linked investments never do. Anyone who blurs that line is telling you something about themselves.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    }
+]

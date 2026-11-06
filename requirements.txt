@@ -1,2 +1,4 @@
 # FundFacts Day 2
 # No external dependencies required.
+requests
+beautifulsoup4
