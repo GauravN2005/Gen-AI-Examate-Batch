@@ -5,3 +5,11 @@ User: College students, beginners and people interested in learning about mutual
 Problem: Many beginners don't understand SIP, NAV, risk, KYC and mutual fund terminology.
 
 Data Source: SEBI's official investor education resources and mutual fund investor awareness materials
+
+## Run the CLI
+
+From the project root, activate the virtual environment and run:
+
+```powershell
+python -m app.cli
+```
