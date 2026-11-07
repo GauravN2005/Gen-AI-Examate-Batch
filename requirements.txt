@@ -2,3 +2,7 @@
 # No external dependencies required.
 requests
 beautifulsoup4
+fastapi
+uvicorn
+pandas
+scikit-learn

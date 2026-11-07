@@ -124,3 +124,68 @@ python -m app.ingest
 ```
 
 **Output:** Downloaded SEBI source documents and structured JSON records for the FundFacts knowledge base.
+
+## Day 4 – FastAPI, Data Analysis & Smart Search
+
+Day 4 adds a retrieval-based FastAPI service, pandas dataset exploration, and
+TF-IDF/cosine-similarity search over the canonical `data/sample_records.json`
+dataset. The existing Day 3 output at `data/records.json` remains unchanged.
+
+### FastAPI endpoints
+
+- `GET /health` checks API availability.
+- `GET /records?limit=10` returns up to the requested number of sample records.
+- `GET /records/{id}` retrieves one sample record, or returns HTTP 404.
+- `GET /search?q=NAV` ranks relevant records with smart search.
+- `POST /questions` accepts `{"question": "..."}` and returns matching records.
+
+The question endpoint retrieves source records only; it does not generate an
+AI answer or require an external API key. Interactive API documentation is
+available at `http://127.0.0.1:8000/docs`.
+
+### Analysis and project structure
+
+`analysis/explore.py` uses pandas to report total records, category
+distribution, and records needing content review. `app/smart_search.py`
+combines concept, definition, example, chapter, and risk-warning fields,
+vectorizes them with TF-IDF, and ranks matches using cosine similarity.
+
+```text
+app/
+  cli.py
+  fetch.py
+  ingest.py
+  main.py
+  models.py
+  records.py
+  smart_search.py
+analysis/
+  explore.py
+data/
+  sample_records.json
+  records.json
+  raw/
+```
+
+### Install and run
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+python -m analysis.explore
+```
+
+### Example API requests
+
+```bash
+curl http://127.0.0.1:8000/health
+curl "http://127.0.0.1:8000/records?limit=5"
+curl http://127.0.0.1:8000/records/G01
+curl "http://127.0.0.1:8000/search?q=NAV"
+curl -X POST http://127.0.0.1:8000/questions \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"What is NAV in mutual funds?\"}"
+```
+
+The analysis command prints the total record count, category distribution,
+and the number of records containing missing or placeholder content.
