@@ -1,31 +1,351 @@
 [
     {
-        "concept": "Mutual Funds: What They Are and How They Work",
-        "plain_definition": "Explain how a mutual fund works and what NAV means",
-        "example": "Worked Example — what 1% a year actually costs",
+        "concept": "What a mutual fund is",
+        "plain_definition": "A mutual fund collects money from many investors and invests it, as a single pool, in a portfolio of securities — shares, bonds, money market instruments or a combination. A professional fund manager makes the investment decisions, following the objective stated in the scheme’s documents.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
         "module_chapter": "Module 4 · Chapter 14",
         "risk_warning": "What it does not do is remove risk. A mutual fund investing in equity carries equity risk, in full. Diversification within the fund removes company-specific risk, not market risk. That distinction was drawn earlier and is worth re-reading if it has not stuck.",
         "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
-        "concept": "Choosing a Mutual Fund Scheme",
-        "plain_definition": "Navigate the main categories of mutual fund and match them to your goals",
+        "concept": "Net Asset Value",
+        "plain_definition": "Net Asset Value (NAV) is the per-unit value of a scheme. It is calculated as the total market value of the scheme’s assets, minus its liabilities, divided by the number of units outstanding.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "What it costs you",
+        "plain_definition": "Three costs matter, and one of them matters enormously.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Total Expense Ratio",
+        "plain_definition": "The Total Expense Ratio (TER) is the annual charge the AMC levies for managing the scheme, expressed as a percentage of assets. It covers fund management, administration, marketing, distributor commission where applicable, operating costs, and the transaction costs incurred in executing trades — brokerage and statutory levies including GST. SEBI prescribes maximum limits, which vary by scheme type and size.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Exit load",
+        "plain_definition": "An exit load is a fee charged if you redeem before a specified period — commonly around 1% if you exit within a year, though it varies and many debt and liquid schemes have none.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Stamp duty",
+        "plain_definition": "A small, uniform stamp duty applies on the purchase or transfer of mutual fund units. It appears on your transaction statement.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Direct plans and Regular plans",
+        "plain_definition": "Every scheme is offered in two versions of the same portfolio.",
+        "example": "The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Growth plan and IDCW plan",
+        "plain_definition": "Every scheme also offers two options for what happens to the income the portfolio earns.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Growth plan",
+        "plain_definition": "Profits and income earned by the scheme are retained and reinvested. No payouts are made. The NAV rises as earnings accumulate.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "IDCW plan — Income Distribution cum Capital Withdrawal",
+        "plain_definition": "The scheme may distribute a portion of income earned, or return a portion of your capital, when declared.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Step 1 — Have your documents ready",
+        "plain_definition": "PAN card: Required for most securities market investments. If you do not hold one, a declaration in Form 97 — which replaced Form 60 from 1 April 2026 — may be accepted for certain specified transactions. PAN is now mandatory for a wider range of transactions than before, so check whether the declaration route is still open for what you intend to do.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Step 4 — Open a demat account as per your requirement",
+        "plain_definition": "Investors may choose to hold mutual fund units in a demat account, which provides a consolidated electronic holding of mutual fund units and other securities in a single account. A demat account is required for holding ETFs and for investing through stock exchange platforms. Alternatively, mutual fund units may also be held through a Statement of Account (SOA) issued by the AMC or RTA, which is entirely secure and adequate.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Step 8 — Track it",
+        "plain_definition": "Reviewing twice a year is sufficient. Checking daily is actively harmful, for reasons covered later.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 14",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
+    },
+    {
+        "concept": "Start with the goal, not the fund",
+        "plain_definition": "There are hundreds of mutual fund schemes in India. Choosing among them by looking at last year’s return table is how most people do it, and it is close to the worst available method.",
         "example": "No standalone example identified in this page.",
         "module_chapter": "Module 4 · Chapter 15",
-        "risk_warning": "Read a Risk-o-meter and know where to find a scheme’s real details",
+        "risk_warning": "Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
         "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
     },
     {
-        "concept": "Investing on Autopilot: SIP, STP and SWP",
-        "plain_definition": "Set up a SIP and explain what rupee cost averaging does and does not do",
+        "concept": "The categories",
+        "plain_definition": "SEBI has standardised mutual fund categories so that schemes with the same label do broadly the same thing across fund houses. Here is the map.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "By structure",
+        "plain_definition": "Open-ended: You can buy or redeem units at any time, at the prevailing NAV. No fixed maturity. Most schemes are open-ended, and this is what most investors should use.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "By Asset Class",
+        "plain_definition": "Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "By market capitalisation (equity funds)",
+        "plain_definition": "Large-cap funds invest primarily in large, established companies. Generally the least volatile equity category.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Sectoral funds invest in one sector — banking, pharmaceuticals, technology, infrastructure. Concentrated, therefore high risk. They also tend to be launched and marketed after a sector has already performed well, which is precisely when future returns are least attractive.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "By management style",
+        "plain_definition": "Active funds are managed by a fund manager who selects securities with the aim of beating a benchmark index. Requires continuous research, and therefore carries higher expenses. Performance depends on the manager’s skill and decisions.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Sectoral funds invest in one sector — banking, pharmaceuticals, technology, infrastructure. Concentrated, therefore high risk. They also tend to be launched and marketed after a sector has already performed well, which is precisely when future returns are least attractive.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "By speciality",
+        "plain_definition": "Sectoral funds invest in one sector — banking, pharmaceuticals, technology, infrastructure. Concentrated, therefore high risk. They also tend to be launched and marketed after a sector has already performed well, which is precisely when future returns are least attractive.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Sectoral funds invest in one sector — banking, pharmaceuticals, technology, infrastructure. Concentrated, therefore high risk. They also tend to be launched and marketed after a sector has already performed well, which is precisely when future returns are least attractive.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "The factsheet: where the answers actually are",
+        "plain_definition": "Every scheme publishes a monthly factsheet — a two- or three-page summary that fund houses are required to produce and update. It is free, it is on the AMC’s website, and it contains almost everything the previous pages told you to check. Most investors have never opened one.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Debt fund categories",
+        "plain_definition": "Debt funds are categorised largely by the maturity of what they hold, which determines their sensitivity to interest rate changes.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "The Risk-o-meter",
+        "plain_definition": "Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Where the real information is",
+        "plain_definition": "Marketing material is not the scheme. Three documents are.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID. It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Scheme Information Document (SID)",
+        "plain_definition": "If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID. It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID. It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Statement of Additional Information (SAI)",
+        "plain_definition": "Contains statutory and legal information about the mutual fund and the AMC — constitution, trustees, key personnel, penalties and pending litigation. Read it if you want to understand the institution behind the scheme.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Key Information Memorandum (KIM)",
+        "plain_definition": "A condensed summary of the SID, provided with the application form. Useful, but it is an abridgement — the full detail is in the SID.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Reading returns correctly",
+        "plain_definition": "Return figures are presented in several ways, and they are not interchangeable.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "A practical selection process",
+        "plain_definition": "Pick the category within it — for a fifteen-year goal, a diversified equity or index fund; for three years, a hybrid or short duration debt fund.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 15",
+        "risk_warning": "The Risk-o-meter has six levels, is updated monthly, and measures the scheme’s risk, not its suitability for you.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
+    },
+    {
+        "concept": "Three facilities, one principle",
+        "plain_definition": "All three are mechanisms for doing something in fixed instalments rather than all at once.",
         "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
         "module_chapter": "Module 4 · Chapter 16",
         "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
         "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
-        "concept": "Five Rules That Protect You",
+        "concept": "Systematic Investment Plan",
+        "plain_definition": "A SIP invests a fixed sum at fixed intervals — usually monthly, sometimes weekly or quarterly — into a chosen scheme. Many schemes accept ₹500 a month; some accept less.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Setting one up",
+        "plain_definition": "You can pause, modify, increase or stop a SIP at any time. It is a facility, not a contract.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "What a SIP actually achieves",
+        "plain_definition": "It enforces the savings-first principle. The money leaves automatically. Automation beats willpower, and a SIP is that principle turned into a bank instruction.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "What a SIP does not do",
+        "plain_definition": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Step-up SIP",
+        "plain_definition": "Most platforms allow a step-up or top-up SIP that increases your instalment automatically each year — by a fixed percentage or a fixed amount.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Systematic Transfer Plan",
+        "plain_definition": "An STP moves a fixed amount from one scheme to another at fixed intervals, within the same fund house. There are two main uses.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Deploying a lump sum gradually",
+        "plain_definition": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "example": "Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Systematic Withdrawal Plan",
+        "plain_definition": "An SWP redeems a fixed amount from your scheme at fixed intervals and credits it to your bank account.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Chapter 16",
+        "risk_warning": "Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
+    },
+    {
+        "concept": "Rule 1 — Nobody can guarantee you a return",
         "plain_definition": "Not a fund manager, not an adviser, not an app, not SEBI. A guaranteed or “assured” return in the securities market is the single most reliable sign of a fraud. Bank deposits and small savings schemes carry fixed rates; market-linked investments never do. Anyone who blurs that line is telling you something about themselves.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    },
+    {
+        "concept": "Rule 2 — Verify before you pay, every single time",
+        "plain_definition": "Before money leaves your account, check the entity on the SEBI intermediary lists at sebi.gov.in , and check the collection account on SEBI Check . A registered intermediary’s UPI handle carries the @valid suffix and a thumbs-up indicator in your payment app. An app should come from an official store listing with the verified label. This takes two minutes and it is the highest-value two minutes in this book.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    },
+    {
+        "concept": "Rule 3 — Never share an OTP, PIN or password, and never sign a blank form",
+        "plain_definition": "No genuine intermediary, bank or regulator will ever ask for an OTP. Not for a refund, not for verification, not for a “reversal”, not to release your own money. Never sign a blank delivery instruction slip.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    },
+    {
+        "concept": "Rule 4 — Urgency is the weapon",
+        "plain_definition": "Every fraud needs you to act before you think. A closing window, a limited allotment, a price about to move, a penalty if you delay. Genuine investments are still there in forty-eight hours. Make the forty-eight-hour rule absolute: no money moves on the day you first hear about something.",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    },
+    {
+        "concept": "Rule 5 — If it goes wrong, act within hours",
+        "plain_definition": "Report at cybercrime.gov.in or call the helpline 1930 — the first few hours decide whether money can be held",
+        "example": "No standalone example identified in this page.",
+        "module_chapter": "Module 4 · Halfway Checkpoint",
+        "risk_warning": "No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html"
+    },
+    {
+        "concept": "What comes next",
+        "plain_definition": "Part 5 — Investing Directly: Shares, Bonds and Government Schemes. Buying shares directly, applying for IPOs, bonds and government securities, and the government-backed schemes — PPF, NSC, SCSS, Sukanya Samriddhi and NPS.",
         "example": "No standalone example identified in this page.",
         "module_chapter": "Module 4 · Halfway Checkpoint",
         "risk_warning": "No specific warning automatically identified. Review the source page.",

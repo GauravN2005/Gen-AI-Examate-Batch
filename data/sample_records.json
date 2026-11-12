@@ -1,93 +1,93 @@
-﻿[
+[
     {
         "id": "M4C1",
-        "concept": "Module 4 - Chapter 1",
+        "concept": "Mutual Fund",
         "category": "module_4",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 4 - Chapter 1",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "A mutual fund collects money from many investors and invests it as a single pool in a portfolio of securities such as shares, bonds and money market instruments.",
+        "example": "An investment of Rs. 1,000 buys a proportionate share of a diversified portfolio.",
+        "module_chapter": "Module 4 - Chapter 14",
+        "risk_warning": "Diversification reduces company-specific risk but does not remove market risk.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "M4C2",
-        "concept": "Module 4 - Chapter 2",
+        "concept": "Net Asset Value",
         "category": "module_4",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 4 - Chapter 2",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "Net Asset Value (NAV) is the per-unit value of a scheme, calculated as its total assets minus liabilities divided by the number of units outstanding.",
+        "example": "If a scheme's assets minus liabilities are Rs. 10 lakh and it has 50,000 units, its NAV is Rs. 20.",
+        "module_chapter": "Module 4 - Chapter 14",
+        "risk_warning": "A low NAV does not mean that a scheme is cheaper or more likely to perform well.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "M4C3",
-        "concept": "Module 4 - Chapter 3",
+        "concept": "Total Expense Ratio",
         "category": "module_4",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 4 - Chapter 3",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "The Total Expense Ratio is the annual charge an asset management company levies for managing a scheme, expressed as a percentage of assets.",
+        "example": "A 1% expense ratio is deducted from the scheme's assets and is reflected in its NAV.",
+        "module_chapter": "Module 4 - Chapter 14",
+        "risk_warning": "Expenses reduce the amount that compounds for the investor over time.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "M4C4",
-        "concept": "Module 4 - Chapter 4",
+        "concept": "Exit Load",
         "category": "module_4",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 4 - Chapter 4",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "An exit load is a fee charged when an investor redeems units before a specified period.",
+        "example": "A scheme may charge an exit load when units are redeemed within its stated holding period.",
+        "module_chapter": "Module 4 - Chapter 14",
+        "risk_warning": "Check the applicable exit-load conditions before investing if you may need the money soon.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "M3C1",
-        "concept": "Module 3 - Chapter 1",
+        "concept": "Direct Plans and Regular Plans",
         "category": "module_3",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 3 - Chapter 1",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "Direct and Regular plans are two versions of the same mutual fund portfolio; the main difference is whether distributor commission is included in the expenses.",
+        "example": "An investor using a distributor may select a Regular plan, while a self-directed investor may select a Direct plan.",
+        "module_chapter": "Module 4 - Chapter 14",
+        "risk_warning": "Compare the service received and the long-term effect of plan expenses before choosing.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "M3C2",
-        "concept": "Module 3 - Chapter 2",
+        "concept": "Systematic Investment Plan",
         "category": "module_3",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 3 - Chapter 2",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "A Systematic Investment Plan invests a fixed sum at fixed intervals, usually monthly, in a mutual fund.",
+        "example": "An investor can invest Rs. 2,000 every month instead of investing the entire amount at once.",
+        "module_chapter": "Module 4 - Chapter 16",
+        "risk_warning": "A SIP does not guarantee a profit or prevent a loss when markets fall.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
         "id": "M3C3",
-        "concept": "Module 3 - Chapter 3",
+        "concept": "Systematic Transfer Plan",
         "category": "module_3",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 3 - Chapter 3",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "A Systematic Transfer Plan moves money in fixed instalments from one mutual fund scheme to another.",
+        "example": "An investor can transfer a fixed amount from a liquid scheme into an equity scheme each month.",
+        "module_chapter": "Module 4 - Chapter 16",
+        "risk_warning": "Transfers remain exposed to market, tax and exit-load implications.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
         "id": "M3C4",
-        "concept": "Module 3 - Chapter 4",
+        "concept": "Systematic Withdrawal Plan",
         "category": "module_3",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 3 - Chapter 4",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "A Systematic Withdrawal Plan allows an investor to withdraw a specified amount from a mutual fund at regular intervals.",
+        "example": "An investor can request a monthly withdrawal of Rs. 10,000 from an eligible scheme.",
+        "module_chapter": "Module 4 - Chapter 16",
+        "risk_warning": "Regular withdrawals can reduce the remaining investment value.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
         "id": "M3C5",
-        "concept": "Module 3 - Chapter 5",
+        "concept": "Debt Fund Categories",
         "category": "module_3",
-        "plain_definition": "Replace with the actual chapter explanation from SEBI material.",
-        "example": "Add an example based on the chapter.",
-        "module_chapter": "Module 3 - Chapter 5",
-        "risk_warning": "Add the relevant caution from the source.",
-        "source_url": "https://www.sebi.gov.in/"
+        "plain_definition": "Debt funds are categorised largely by the maturity of what they hold, which determines their sensitivity to interest-rate changes.",
+        "example": "A long-duration gilt fund can move substantially when interest rates change, while a liquid fund generally moves less.",
+        "module_chapter": "Module 4 - Chapter 15",
+        "risk_warning": "Debt funds can lose value when interest rates or the value of their holdings change.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
     },
     {
         "id": "G01",
@@ -97,7 +97,7 @@
         "example": "If NAV is Rs. 20, one unit has a stated NAV of Rs. 20.",
         "module_chapter": "Glossary",
         "risk_warning": "NAV alone does not indicate whether a fund is good or bad.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G02",
@@ -107,7 +107,7 @@
         "example": "An expense ratio of 1% represents annual expenses equivalent to 1% of the applicable assets.",
         "module_chapter": "Glossary",
         "risk_warning": "Expenses reduce the returns available to investors.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G03",
@@ -117,7 +117,7 @@
         "example": "An investor purchases a scheme directly through the AMC.",
         "module_chapter": "Glossary",
         "risk_warning": "Direct plans do not remove investment risk.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G04",
@@ -127,7 +127,7 @@
         "example": "An investor purchases a scheme through a mutual fund distributor.",
         "module_chapter": "Glossary",
         "risk_warning": "Regular plans generally include distributor commissions in scheme expenses.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G05",
@@ -137,7 +137,7 @@
         "example": "The six levels are Low, Low to Moderate, Moderate, Moderately High, High and Very High.",
         "module_chapter": "Glossary",
         "risk_warning": "Risk levels can change. A Riskometer does not guarantee future performance.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
     },
     {
         "id": "G06",
@@ -147,7 +147,7 @@
         "example": "An investor completes the required identity and address verification.",
         "module_chapter": "Glossary",
         "risk_warning": "Never share OTPs or sensitive credentials with unknown people.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G07",
@@ -157,7 +157,7 @@
         "example": "An investor reads the scheme objective, risks and expenses in its SID.",
         "module_chapter": "Glossary",
         "risk_warning": "Read the complete scheme information before making an investment decision.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html"
     },
     {
         "id": "G08",
@@ -167,7 +167,7 @@
         "example": "An investor registers an eligible family member as nominee.",
         "module_chapter": "Glossary",
         "risk_warning": "Nomination does not automatically determine legal ownership or inheritance rights.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     },
     {
         "id": "G09",
@@ -177,7 +177,7 @@
         "example": "A fixed amount is transferred periodically from one scheme to another.",
         "module_chapter": "Glossary",
         "risk_warning": "Transfers may have market, tax and exit-load implications.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
         "id": "G10",
@@ -187,7 +187,7 @@
         "example": "An investor requests a periodic withdrawal of Rs. 1,000.",
         "module_chapter": "Glossary",
         "risk_warning": "Withdrawals can reduce the remaining investment value.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html"
     },
     {
         "id": "G11",
@@ -197,7 +197,6 @@
         "example": "A scheme may charge an exit load if units are redeemed before its specified holding period.",
         "module_chapter": "Glossary",
         "risk_warning": "Check the scheme's applicable exit-load conditions before redemption.",
-        "source_url": "https://www.sebi.gov.in/"
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html"
     }
 ]
-

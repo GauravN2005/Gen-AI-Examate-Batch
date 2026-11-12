@@ -1,6 +1,7 @@
 
 import json
 import re
+import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -11,6 +12,12 @@ from app.models import Record
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw"
 OUTPUT_FILE = BASE_DIR / "data" / "records.json"
+
+
+def log(message):
+    """Write diagnostics even when the console encoding is limited."""
+    encoding = sys.stdout.encoding or "utf-8"
+    print(str(message).encode(encoding, errors="replace").decode(encoding))
 
 
 def clean_text(text):
@@ -30,28 +37,58 @@ def extract_chapter(soup):
     return "Module information not found"
 
 
-def extract_definition(soup):
-    """Extract the first meaningful chapter explanation."""
+def _is_content_element(element):
+    """Return whether an element is part of the article content."""
+    return not element.find_parent(
+        ["nav", "footer", "header", "aside", "script", "style"]
+    )
 
-    for heading in soup.find_all(["h2", "h3"]):
 
-        if heading.find_parent("nav"):
+def _meaningful_text(element):
+    if not _is_content_element(element):
+        return ""
+    text = clean_text(element.get_text(" ", strip=True))
+    if len(text) < 40:
+        return ""
+    if text.lower().startswith(("by the end", "where this fits")):
+        return ""
+    if not re.search(r"[.!?]", text):
+        return ""
+    if text.endswith(":") or (
+        text.lower().startswith(
+            ("assemble ", "choose ", "call ", "use ", "read ", "check ", "set up ")
+        )
+    ):
+        return ""
+    return text
+
+
+def _definition_for_heading(heading):
+    """Return the first explanatory paragraph associated with a heading."""
+    for sibling in heading.find_all_next(["h1", "h2", "h3", "h4", "p", "li"]):
+        if sibling.name in {"h1", "h2", "h3", "h4"}:
+            break
+        text = _meaningful_text(sibling)
+        if text and not text.lower().startswith(
+            ("watch out", "worked example", "for example")
+        ):
+            return text
+    return None
+
+
+def extract_definition(soup, heading=None):
+    """Extract explanatory content rather than returning a heading."""
+    headings = [heading] if heading is not None else soup.find_all(["h2", "h3"])
+    for candidate in headings:
+        if candidate.find_parent("nav"):
             continue
-
-        for sibling in heading.find_all_next(["p", "li"], limit=5):
-
-            text = clean_text(sibling.get_text(" ", strip=True))
-
-            if (
-                len(text) > 40
-                and not text.lower().startswith("by the end")
-            ):
-                return text
-
+        definition = _definition_for_heading(candidate)
+        if definition:
+            return definition
     raise ValueError("Definition could not be extracted")
 
 
-def extract_example(soup):
+def extract_example(soup, heading=None):
     """Find an example from the chapter."""
 
     keywords = [
@@ -61,9 +98,14 @@ def extract_example(soup):
         "illustrative example"
     ]
 
-    for element in soup.find_all(["p", "li", "td"]):
+    elements = (
+        heading.find_all_next(["p", "li", "td"])
+        if heading is not None
+        else soup.find_all(["p", "li", "td"])
+    )
+    for element in elements:
 
-        text = clean_text(element.get_text(" ", strip=True))
+        text = _meaningful_text(element)
 
         if any(word in text.lower() for word in keywords):
             return text[:700]
@@ -71,7 +113,7 @@ def extract_example(soup):
     return "No standalone example identified in this page."
 
 
-def extract_warning(soup):
+def extract_warning(soup, heading=None):
     """Extract a relevant risk or caution."""
 
     keywords = [
@@ -82,9 +124,14 @@ def extract_warning(soup):
         "warning"
     ]
 
-    for element in soup.find_all(["p", "li"]):
+    elements = (
+        heading.find_all_next(["p", "li"])
+        if heading is not None
+        else soup.find_all(["p", "li"])
+    )
+    for element in elements:
 
-        text = clean_text(element.get_text(" ", strip=True))
+        text = _meaningful_text(element)
 
         if any(word in text.lower() for word in keywords):
             if len(text) > 30:
@@ -93,39 +140,71 @@ def extract_warning(soup):
     return "No specific warning automatically identified. Review the source page."
 
 
+def _concept_headings(soup):
+    ignored = (
+        "by the end",
+        "recap",
+        "check your understanding",
+        "your action step",
+        "next chapter",
+        "back to chapters",
+    )
+    for heading in soup.find_all(["h2", "h3"]):
+        if heading.find_parent("nav"):
+            continue
+        concept = clean_text(heading.get_text(" ", strip=True))
+        if (
+            concept
+            and "\ufffd" not in concept
+            and not concept.lower().startswith("a saa")
+            and not concept.lower().startswith(ignored)
+        ):
+            yield heading, concept
+
+
+def extract_records(file_path, source_url):
+    """Extract all supported concept records from one SEBI page."""
+    html = file_path.read_text(encoding="utf-8")
+    if not html.strip():
+        raise ValueError("Downloaded page is empty")
+
+    soup = BeautifulSoup(html, "html.parser")
+    module_chapter = extract_chapter(soup)
+    records = []
+    concepts = set()
+
+    for heading, concept in _concept_headings(soup):
+        try:
+            definition = extract_definition(soup, heading)
+            if concept.casefold() in concepts:
+                continue
+            concepts.add(concept.casefold())
+            records.append(
+                Record(
+                    concept=concept,
+                    plain_definition=definition,
+                    example=extract_example(soup, heading),
+                    module_chapter=module_chapter,
+                    risk_warning=extract_warning(soup, heading),
+                    source_url=source_url,
+                )
+            )
+        except (ValueError, TypeError) as error:
+            log(f"Concept skipped: {concept} - {error}")
+
+    if not records:
+        raise ValueError("No concepts with explanatory content found")
+    return records
+
+
 def extract_record(file_path, source_url):
+    """Extract the first concept record for backwards compatibility."""
 
     try:
-        html = file_path.read_text(encoding="utf-8")
+        return extract_records(file_path, source_url)[0]
 
-        soup = BeautifulSoup(html, "html.parser")
-
-        title_tag = soup.find("h1")
-
-        if not title_tag:
-            raise ValueError("Chapter title not found")
-
-        concept = clean_text(title_tag.get_text(" ", strip=True))
-
-        module_chapter = extract_chapter(soup)
-
-        definition = extract_definition(soup)
-
-        example = extract_example(soup)
-
-        warning = extract_warning(soup)
-
-        return Record(
-            concept=concept,
-            plain_definition=definition,
-            example=example,
-            module_chapter=module_chapter,
-            risk_warning=warning,
-            source_url=source_url
-        )
-
-    except Exception as error:
-        print(f"Bad row skipped: {file_path.name} - {error}")
+    except (OSError, UnicodeError, ValueError) as error:
+        log(f"Bad row skipped: {file_path.name} - {error}")
         return None
 
 
@@ -156,14 +235,13 @@ def ingest_data():
             if not file_path.exists():
                 raise FileNotFoundError("Raw HTML file missing")
 
-            record = extract_record(file_path, source_url)
-
-            if record is not None:
+            page_records = extract_records(file_path, source_url)
+            for record in page_records:
                 cleaned_records.append(record.to_dict())
-                print(f"Processed: {record.concept}")
+                log(f"Processed: {record.concept}")
 
-        except Exception as error:
-            print(f"Error processing {filename}: {error}")
+        except (OSError, UnicodeError, ValueError, json.JSONDecodeError) as error:
+                log(f"Error processing {filename}: {error}")
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
@@ -172,9 +250,9 @@ def ingest_data():
         encoding="utf-8"
     )
 
-    print("\n========== INGESTION SUMMARY ==========")
-    print("Records created:", len(cleaned_records))
-    print("Output:", OUTPUT_FILE)
+    log("\n========== INGESTION SUMMARY ==========")
+    log(f"Records created: {len(cleaned_records)}")
+    log(f"Output: {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
