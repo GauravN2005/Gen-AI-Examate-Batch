@@ -215,3 +215,75 @@ uvicorn app.main:app --reload
 
 Open the automatically generated API documentation at
 `http://127.0.0.1:8000/docs`.
+
+## Day 6 – Gemini Integration and Prompt Engineering
+
+Day 6 adds **SchemeSaathi**, the Gemini-backed educational assistant inside
+FundFacts. It uses structured SEBI records as reference material and does not
+provide personalised financial advice, recommend specific schemes, or
+guarantee returns.
+
+### Gemini setup
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Open `.env` and manually enter your own key:
+
+```text
+GEMINI_API_KEY=PASTE_YOUR_OWN_KEY_HERE
+```
+
+`.env` is ignored by Git. The safe template is [.env.example](.env.example).
+The provider wrapper in [app/llm.py](app/llm.py) loads the key from the
+environment, creates the Gemini client only for a request, requests JSON
+output, and converts configuration or provider failures into safe API errors.
+
+### Prompts and chat
+
+- [system_prompt.txt](prompts/system_prompt.txt) defines SchemeSaathi's
+  educational and safety rules.
+- [task_prompt_v1.txt](prompts/task_prompt_v1.txt) is the baseline task prompt.
+- [task_prompt_v2.txt](prompts/task_prompt_v2.txt) grounds answers in retrieved
+  FundFacts records and requires uncertainty to be acknowledged.
+
+`POST /chat` accepts `{"message": "What is NAV?"}` and returns:
+
+```json
+{
+  "answer": "Educational answer",
+  "confidence": "high",
+  "follow_up": "A useful follow-up question?"
+}
+```
+
+The confidence value is limited to `high`, `medium`, or `low`. The endpoint
+retrieves records with the existing TF-IDF search, loads the trusted system
+prompt and task prompt v2, then validates Gemini's JSON response with Pydantic.
+
+### Prompt evaluation
+
+[prompt_compare.md](eval/prompt_compare.md) compares v1 and v2 using the same
+ten Day 5 questions. Question 6 is important because it tests whether the
+assistant refuses to invent a guaranteed future return or specific-fund
+recommendation. Run the repeatable comparison with:
+
+```bash
+python eval/compare_prompts.py
+```
+
+Without a configured key, the evaluation remains **Pending – Gemini API key
+required** and does not fabricate responses or scores. With a key, provider
+responses are saved locally for human review; the script does not generate
+qualitative scores automatically.
+
+Start and test the service with:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Then open `http://127.0.0.1:8000/docs` and try `POST /chat`.
