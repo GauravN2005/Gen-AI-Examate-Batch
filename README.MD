@@ -18,9 +18,9 @@ Implemented Features
 
 1. Structured Data Creation
 
-Created a collection of records using Python dictionaries.
+Created a UTF-8 JSON collection of structured FundFacts records.
 
-Added 9 chapter-level records covering Module 3 and Module 4.
+Added 9 topic records covering mutual fund concepts from the SEBI material.
 
 Added 11 glossary-style records covering important mutual fund concepts.
 
@@ -94,10 +94,12 @@ Build the first data-ingestion pipeline for FundFacts using official SEBI invest
 - Downloaded SEBI HTML documents using Python `requests`.
 - Added timeout and HTTP error handling.
 - Stored raw HTML documents in `data/raw/`.
-- Implemented HTML cleaning and text extraction using BeautifulSoup.
+- Implemented HTML cleaning and heading-associated definition extraction using BeautifulSoup.
+- Extracted multiple distinct concepts from each educational page instead of one chapter record per page.
+- Skipped headings without reliable explanatory content and removed duplicate concepts.
 - Added a `Record` dataclass to maintain a consistent data structure.
 - Added exception handling to skip problematic records.
-- Exported cleaned records into `data/records.json`.
+- Exported 44 cleaned records into `data/records.json`.
 
 ### Record Structure
 Each processed record contains:
@@ -129,7 +131,8 @@ python -m app.ingest
 
 Day 4 adds a retrieval-based FastAPI service, pandas dataset exploration, and
 TF-IDF/cosine-similarity search over the canonical `data/sample_records.json`
-dataset. The existing Day 3 output at `data/records.json` remains unchanged.
+dataset. The Day 3 output at `data/records.json` is generated independently
+from the downloaded SEBI HTML documents.
 
 ### FastAPI endpoints
 
@@ -189,3 +192,26 @@ curl -X POST http://127.0.0.1:8000/questions \
 
 The analysis command prints the total record count, category distribution,
 and the number of records containing missing or placeholder content.
+
+## Day 5 – LLM Basics and Checkpoint 1
+
+Day 5 documents how LLMs work, adds beginner questions for the FundFacts
+dataset, and explains the existing TF-IDF search implementation.
+
+- [How LLMs work](docs/how_llms_work.md) explains LLMs, tokenization, training,
+  inference, hallucinations, and responsible use. It includes one Mermaid
+  flowchart.
+- [Beginner user questions](docs/user_questions.md) contains exactly 10
+  realistic questions. Question 6 is explicitly unsupported because the
+  dataset cannot predict or guarantee future returns.
+- [Checkpoint 1 report](docs/checkpoint1.md) explains the real
+  `smart_search()` function and records the FastAPI verification results.
+
+Start the FastAPI service with:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Open the automatically generated API documentation at
+`http://127.0.0.1:8000/docs`.
