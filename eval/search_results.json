@@ -1,0 +1,272 @@
+[
+  {
+    "question": 1,
+    "text": "What is a SIP, and how does investing a fixed amount every month work?",
+    "results": [
+      {
+        "chunk_id": "c99e68096dd53d828782721c",
+        "text": "A SIP invests a fixed sum at fixed intervals — usually monthly, sometimes weekly or quarterly — into a chosen scheme. Many schemes accept ₹500 a month; some accept less. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss.",
+        "title": "Systematic Investment Plan",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "distance": 0.17938894033432007
+      },
+      {
+        "chunk_id": "e8888e51b01405f59a776819",
+        "text": "It enforces the savings-first principle. The money leaves automatically. Automation beats willpower, and a SIP is that principle turned into a bank instruction. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "title": "What a SIP actually achieves",
+        "distance": 0.3291677236557007
+      },
+      {
+        "chunk_id": "6fa4707377358a8bb57dea60",
+        "text": "Most platforms allow a step-up or top-up SIP that increases your instalment automatically each year — by a fixed percentage or a fixed amount. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "title": "Step-up SIP",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "distance": 0.3372288942337036
+      }
+    ]
+  },
+  {
+    "question": 2,
+    "text": "What does NAV mean, and does a lower NAV mean that a fund is cheaper?",
+    "results": [
+      {
+        "chunk_id": "8324f859d902f11872681d15",
+        "text": "Net Asset Value (NAV) is the per-unit value of a scheme. It is calculated as the total market value of the scheme’s assets, minus its liabilities, divided by the number of units outstanding. The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades. No specific warning automatically identified. Review the source page.",
+        "title": "Net Asset Value",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "distance": 0.36342936754226685
+      },
+      {
+        "chunk_id": "50b74303513b700413f0461b",
+        "text": "Profits and income earned by the scheme are retained and reinvested. No payouts are made. The NAV rises as earnings accumulate. No standalone example identified in this page. No specific warning automatically identified. Review the source page.",
+        "title": "Growth plan",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "distance": 0.4768184423446655
+      },
+      {
+        "chunk_id": "6e29fbd80e37e6748827e33e",
+        "text": "Active funds are managed by a fund manager who selects securities with the aim of beating a benchmark index. Requires continuous research, and therefore carries higher expenses. Performance depends on the manager’s skill and decisions. No standalone example identified in this page. Sectoral funds invest in one sector — banking, pharmaceuticals, technology, infrastructure. Concentrated, therefore high risk.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "By management style",
+        "distance": 0.6033707857131958
+      }
+    ]
+  },
+  {
+    "question": 3,
+    "text": "What is the difference between a direct plan and a regular plan?",
+    "results": [
+      {
+        "chunk_id": "c751d3315fd0c777ee69fc52",
+        "text": "It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "Scheme Information Document (SID)",
+        "distance": 0.7288264632225037
+      },
+      {
+        "chunk_id": "fc509dd006fd3262e4305c8c",
+        "text": "All three are mechanisms for doing something in fixed instalments rather than all at once. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss. Rupee cost averaging improves your average entry price; it does not make markets rise.",
+        "title": "Three facilities, one principle",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "distance": 0.7405033707618713
+      },
+      {
+        "chunk_id": "e8888e51b01405f59a776819",
+        "text": "It enforces the savings-first principle. The money leaves automatically. Automation beats willpower, and a SIP is that principle turned into a bank instruction. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. It does not guarantee a profit. If the market falls throughout your investment period and is still down when you need the money, you will have a loss.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "title": "What a SIP actually achieves",
+        "distance": 0.7446353435516357
+      }
+    ]
+  },
+  {
+    "question": 4,
+    "text": "What does the Riskometer tell me about a mutual fund scheme?",
+    "results": [
+      {
+        "chunk_id": "c52c796d06fad772c2b32c57",
+        "text": "Every scheme publishes a monthly factsheet — a two- or three-page summary that fund houses are required to produce and update. It is free, it is on the AMC’s website, and it contains almost everything the previous pages told you to check. Most investors have never opened one. No standalone example identified in this page. Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "The factsheet: where the answers actually are",
+        "distance": 0.24923622608184814
+      },
+      {
+        "chunk_id": "267bb36a48bee6da4a2a62ec",
+        "text": "Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly. No standalone example identified in this page. Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "title": "The Risk-o-meter",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "distance": 0.2916003465652466
+      },
+      {
+        "chunk_id": "8d36d264ff0e11f3ab7dffd3",
+        "text": "A mutual fund collects money from many investors and invests it, as a single pool, in a portfolio of securities — shares, bonds, money market instruments or a combination. A professional fund manager makes the investment decisions, following the objective stated in the scheme’s documents. The portfolios are the same, run by the same manager, holding the same securities.",
+        "title": "What a mutual fund is",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "distance": 0.3705894351005554
+      }
+    ]
+  },
+  {
+    "question": 5,
+    "text": "What is KYC, and why do I need to complete it before investing?",
+    "results": [
+      {
+        "chunk_id": "3d6a373be18c3b98e64e8595",
+        "text": "Part 5 — Investing Directly: Shares, Bonds and Government Schemes. Buying shares directly, applying for IPOs, bonds and government securities, and the government-backed schemes — PPF, NSC, SCSS, Sukanya Samriddhi and NPS. No standalone example identified in this page. No specific warning automatically identified. Review the source page.",
+        "title": "What comes next",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html",
+        "distance": 0.5537461042404175
+      },
+      {
+        "chunk_id": "b92399700dfa339697a9b0f0",
+        "text": "If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID. It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests. No standalone example identified in this page. If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "Scheme Information Document (SID)",
+        "distance": 0.5695289373397827
+      },
+      {
+        "chunk_id": "b7a851fa277a1faf2ef38b53",
+        "text": "Marketing material is not the scheme. Three documents are. No standalone example identified in this page. If you read one document before investing, read the objective, the asset allocation table and the risk factors in the SID. It takes ten minutes and tells you what the scheme is actually permitted to do — which is sometimes materially different from what its name suggests.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "Where the real information is",
+        "distance": 0.5848934650421143
+      }
+    ]
+  },
+  {
+    "question": 6,
+    "text": "Which mutual fund will give me the highest guaranteed return next month?",
+    "results": [
+      {
+        "chunk_id": "bbdd7211129120507bf32304",
+        "text": "There are hundreds of mutual fund schemes in India. Choosing among them by looking at last year’s return table is how most people do it, and it is close to the worst available method. No standalone example identified in this page. Equity funds invest mainly in shares. Aim for long-term capital appreciation. Higher risk, higher long-term potential. Suited to long horizons.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "Start with the goal, not the fund",
+        "distance": 0.422743558883667
+      },
+      {
+        "chunk_id": "def5b1878dd7b5d4099ac72d",
+        "text": "Return figures are presented in several ways, and they are not interchangeable. No standalone example identified in this page. Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "title": "Reading returns correctly",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "distance": 0.5366499423980713
+      },
+      {
+        "chunk_id": "c52c796d06fad772c2b32c57",
+        "text": "Every scheme publishes a monthly factsheet — a two- or three-page summary that fund houses are required to produce and update. It is free, it is on the AMC’s website, and it contains almost everything the previous pages told you to check. Most investors have never opened one. No standalone example identified in this page. Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "The factsheet: where the answers actually are",
+        "distance": 0.5391453504562378
+      }
+    ]
+  },
+  {
+    "question": 7,
+    "text": "What warning signs should I look for if someone promises me a guaranteed mutual fund return?",
+    "results": [
+      {
+        "chunk_id": "9d1f4f94bf731f4b23cbea74",
+        "text": "Not a fund manager, not an adviser, not an app, not SEBI. A guaranteed or “assured” return in the securities market is the single most reliable sign of a fraud. Bank deposits and small savings schemes carry fixed rates; market-linked investments never do. Anyone who blurs that line is telling you something about themselves. No standalone example identified in this page. No specific warning automatically identified. Review the source page.",
+        "title": "Rule 1 — Nobody can guarantee you a return",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html",
+        "distance": 0.3652581572532654
+      },
+      {
+        "chunk_id": "c52c796d06fad772c2b32c57",
+        "text": "Every scheme publishes a monthly factsheet — a two- or three-page summary that fund houses are required to produce and update. It is free, it is on the AMC’s website, and it contains almost everything the previous pages told you to check. Most investors have never opened one. No standalone example identified in this page. Every mutual fund scheme must display a Risk-o-meter — a standardised dial showing the scheme’s risk level, calculated by a prescribed methodology and updated monthly.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "The factsheet: where the answers actually are",
+        "distance": 0.4777402877807617
+      },
+      {
+        "chunk_id": "96654ae0b6e09255a2242c8b",
+        "text": "Every scheme also offers two options for what happens to the income the portfolio earns. No standalone example identified in this page. No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "title": "Growth plan and IDCW plan",
+        "distance": 0.524774432182312
+      }
+    ]
+  },
+  {
+    "question": 8,
+    "text": "What is an expense ratio, and how can it affect my investment?",
+    "results": [
+      {
+        "chunk_id": "932c0295971f822ac46494ef",
+        "text": "The Total Expense Ratio (TER) is the annual charge the AMC levies for managing the scheme, expressed as a percentage of assets. It covers fund management, administration, marketing, distributor commission where applicable, operating costs, and the transaction costs incurred in executing trades — brokerage and statutory levies including GST. SEBI prescribes maximum limits, which vary by scheme type and size. The portfolios are the same, run by the same manager, holding the same securities.",
+        "title": "Total Expense Ratio",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "distance": 0.46685540676116943
+      },
+      {
+        "chunk_id": "def5b1878dd7b5d4099ac72d",
+        "text": "Return figures are presented in several ways, and they are not interchangeable. No standalone example identified in this page. Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "title": "Reading returns correctly",
+        "distance": 0.6127365827560425
+      },
+      {
+        "chunk_id": "e92ca09811043a26664868e0",
+        "text": "A condensed summary of the SID, provided with the application form. Useful, but it is an abridgement — the full detail is in the SID. No standalone example identified in this page. Judging a fund over one year. An equity fund should be judged over at least a full market cycle — five years or more. Redeeming after one bad year converts a temporary decline into a permanent loss, and it is the single most expensive habit in retail investing.",
+        "title": "Key Information Memorandum (KIM)",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+        "distance": 0.6354038715362549
+      }
+    ]
+  },
+  {
+    "question": 9,
+    "text": "What is the difference between an STP and an SWP?",
+    "results": [
+      {
+        "chunk_id": "d8bcf7900f96e91053ef4bd4",
+        "text": "An STP moves a fixed amount from one scheme to another at fixed intervals, within the same fund house. There are two main uses. Suppose you receive ₹12,00,000 — a bonus, a maturity, a sale. Putting it all into equity in one day exposes the entire amount to whatever the market does next month. Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "title": "Systematic Transfer Plan",
+        "distance": 0.5413694977760315
+      },
+      {
+        "chunk_id": "101224eb73e9235d4e9e4203",
+        "text": "An SWP redeems a fixed amount from your scheme at fixed intervals and credits it to your bank account. No standalone example identified in this page. Rupee cost averaging lowers your average entry price. It does not guarantee a profit or always beat a lump sum.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+        "title": "Systematic Withdrawal Plan",
+        "distance": 0.5421555042266846
+      },
+      {
+        "chunk_id": "3033c4ea8fac19b64346c6a5",
+        "text": "The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades. What it does not do is remove risk. A mutual fund investing in equity carries equity risk, in full. Diversification within the fund removes company-specific risk, not market risk. That distinction was drawn earlier and is worth re-reading if it has not stuck.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "title": "What a mutual fund is",
+        "distance": 0.8363799452781677
+      }
+    ]
+  },
+  {
+    "question": 10,
+    "text": "What is an exit load, and what is nomination used for in a mutual fund account?",
+    "results": [
+      {
+        "chunk_id": "12dc189c5f84d7e33f67119f",
+        "text": "An exit load is a fee charged if you redeem before a specified period — commonly around 1% if you exit within a year, though it varies and many debt and liquid schemes have none. The portfolios are the same, run by the same manager, holding the same securities. The only difference is the commission and therefore the TER — which, as the worked example above showed, compounds over decades. No specific warning automatically identified. Review the source page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "title": "Exit load",
+        "distance": 0.32011258602142334
+      },
+      {
+        "chunk_id": "8d36d264ff0e11f3ab7dffd3",
+        "text": "A mutual fund collects money from many investors and invests it, as a single pool, in a portfolio of securities — shares, bonds, money market instruments or a combination. A professional fund manager makes the investment decisions, following the objective stated in the scheme’s documents. The portfolios are the same, run by the same manager, holding the same securities.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "title": "What a mutual fund is",
+        "distance": 0.49294090270996094
+      },
+      {
+        "chunk_id": "473cb5a65a692c46d2a9f534",
+        "text": "Investors may choose to hold mutual fund units in a demat account, which provides a consolidated electronic holding of mutual fund units and other securities in a single account. A demat account is required for holding ETFs and for investing through stock exchange platforms. Alternatively, mutual fund units may also be held through a Statement of Account (SOA) issued by the AMC or RTA, which is entirely secure and adequate. No standalone example identified in this page.",
+        "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+        "title": "Step 4 — Open a demat account as per your requirement",
+        "distance": 0.5027718544006348
+      }
+    ]
+  }
+]

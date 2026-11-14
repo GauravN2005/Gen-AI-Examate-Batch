@@ -287,3 +287,42 @@ uvicorn app.main:app --reload
 ```
 
 Then open `http://127.0.0.1:8000/docs` and try `POST /chat`.
+
+## Day 7 – Semantic Search and ChromaDB
+
+Day 7 adds local document chunking, Sentence Transformers embeddings, and a
+persistent ChromaDB index. Chunking keeps meaningful sentence groups while
+preserving each source URL, title, page value, and available record ID.
+Embeddings are numerical representations of text; the local
+`sentence-transformers/all-MiniLM-L6-v2` model is used for both indexing and
+queries. The model may download once during initial setup.
+
+ChromaDB stores the vectors and metadata in `data/chroma_db/`, so the index
+persists across application restarts. Semantic search finds meaning-related
+text, while the existing `/search` route remains a TF-IDF keyword-based
+search. Semantic search does not require the Gemini API key.
+
+Install dependencies and build the index:
+
+```bash
+pip install -r requirements.txt
+python -m app.vectorstore
+```
+
+Start the API:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Test `GET /search/semantic?q=What is NAV` at
+`http://127.0.0.1:8000/docs`. Evaluate the exact ten Day 5 questions with:
+
+```bash
+python -m eval.evaluate_search
+```
+
+The generated [search evaluation](eval/search_results.md) records actual
+retrieved chunks and scores when the local model and collection are available.
+Relevance judgments remain subject to manual review, and Question 6 cannot be
+answered by semantic retrieval because it asks for a guaranteed future return.

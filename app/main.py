@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field, field_validator
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
 from app.records import get_by_id, load_records
 from app.smart_search import smart_search
+from app.vectorstore import query_chunks
 
 
 app = FastAPI(title="FundFacts API")
@@ -80,6 +81,25 @@ def search_records(
     if not q.strip():
         raise HTTPException(status_code=400, detail="Search query cannot be blank")
     return {"query": q, "results": smart_search(q, top_k=top_k)}
+
+
+@app.get("/search/semantic")
+def semantic_search(
+    q: Annotated[str, Query(min_length=1)],
+    limit: Annotated[int, Query(gt=0)] = 5,
+) -> dict[str, Any]:
+    if not q.strip():
+        raise HTTPException(status_code=400, detail="Search query cannot be blank")
+    try:
+        results = query_chunks(q, limit=limit)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503,
+            detail="Semantic search is not initialized. Run python -m app.vectorstore.",
+        ) from error
+    return {"query": q, "results": results, "count": len(results)}
 
 
 @app.post("/questions")
