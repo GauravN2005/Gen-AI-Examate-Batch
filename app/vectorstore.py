@@ -11,11 +11,11 @@ CHROMA_DIR = BASE_DIR / "data" / "chroma_db"
 COLLECTION_NAME = "fundfacts_chunks"
 
 
-def get_collection():
+def get_collection(collection_name: str = COLLECTION_NAME):
     try:
         import chromadb
         return chromadb.PersistentClient(path=str(CHROMA_DIR)).get_or_create_collection(
-            COLLECTION_NAME,
+            collection_name,
             metadata={"hnsw:space": "cosine"},
         )
     except Exception as error:
@@ -40,12 +40,23 @@ def _metadata(chunk: dict[str, Any]) -> dict[str, Any]:
     return values
 
 
-def index_chunks(chunks: list[dict[str, Any]] | None = None, rebuild: bool = False) -> int:
-    collection = get_collection()
+def index_chunks(
+    chunks: list[dict[str, Any]] | None = None,
+    rebuild: bool = False,
+    collection_name: str = COLLECTION_NAME,
+    chunk_size: int = 500,
+    overlap: int = 50,
+) -> int:
+    collection = get_collection(collection_name)
     if rebuild:
-        _client().delete_collection(COLLECTION_NAME)
-        collection = get_collection()
-    values = chunks if chunks is not None else load_chunks()
+        try:
+            _client().delete_collection(collection_name)
+        except Exception:
+            pass
+        collection = get_collection(collection_name)
+    values = chunks if chunks is not None else load_chunks(
+        chunk_size=chunk_size, overlap=overlap
+    )
     if not values:
         return collection.count()
     embeddings = embed_texts([chunk["text"] for chunk in values])
@@ -58,12 +69,14 @@ def index_chunks(chunks: list[dict[str, Any]] | None = None, rebuild: bool = Fal
     return collection.count()
 
 
-def query_chunks(query: str, limit: int = 5) -> list[dict[str, Any]]:
+def query_chunks(
+    query: str, limit: int = 5, collection_name: str = COLLECTION_NAME
+) -> list[dict[str, Any]]:
     if not query.strip():
         raise ValueError("Search query cannot be blank.")
     if limit <= 0:
         raise ValueError("limit must be positive.")
-    collection = get_collection()
+    collection = get_collection(collection_name)
     if collection.count() == 0:
         return []
     result = collection.query(
@@ -87,8 +100,8 @@ def query_chunks(query: str, limit: int = 5) -> list[dict[str, Any]]:
     ]
 
 
-def count_chunks() -> int:
-    return get_collection().count()
+def count_chunks(collection_name: str = COLLECTION_NAME) -> int:
+    return get_collection(collection_name).count()
 
 
 def main() -> None:

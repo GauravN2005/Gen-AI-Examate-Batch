@@ -326,3 +326,52 @@ The generated [search evaluation](eval/search_results.md) records actual
 retrieved chunks and scores when the local model and collection are available.
 Relevance judgments remain subject to manual review, and Question 6 cannot be
 answered by semantic retrieval because it asks for a guaranteed future return.
+
+## Day 8 – RAG and Evaluation
+
+Day 8 adds Retrieval-Augmented Generation (RAG) through
+[app/rag.py](app/rag.py). The pipeline retrieves actual SEBI chunks from
+ChromaDB, checks evidence and safety constraints, then asks Gemini to generate
+a beginner-friendly answer grounded only in those chunks. Responses include
+the retrieved chunk IDs, titles, URLs, and page values as citations.
+
+If the evidence is insufficient, or a question asks for a guaranteed return,
+personalised advice, or a specific scheme recommendation, SchemeSaathi returns
+the exact answer **“I don't know”** rather than using unsupported general
+knowledge. Question 6 from Day 5 is the primary abstention case.
+
+The 15-case evaluation set is in [eval_set.json](eval/eval_set.json). It
+preserves the ten Day 5 questions and adds five concept, paraphrase, risk, and
+unsupported scenarios. [run_eval.py](eval/run_eval.py) compares two genuinely
+separate persistent Chroma collections:
+
+- Configuration A: 400-character chunks, top-k 3
+- Configuration B: 800-character chunks, top-k 5
+
+Run the evaluation with:
+
+```bash
+python -m eval.run_eval
+```
+
+The script records provider outputs, citations, retrieval metadata, abstention
+checks, and latency in `eval/rag_results.json`. Factual correctness and source
+relevance require human review. The comparison summary is
+`eval/rag_comparison.md`; no winner is declared when results are incomplete or
+inconclusive. Gemini must be configured in the existing local `.env`, and the
+key is never stored in evaluation output.
+
+### Day 8 evaluation status
+
+Evaluation date: **2026-11-16**. Both indexes were built independently, but the
+provider evaluation was incomplete because Gemini responses were not available
+for all supported cases. Therefore no configuration winner is declared.
+
+| Metric | Config A (400 chars, k=3) | Config B (800 chars, k=5) |
+|---|---|---|
+| Answerability accuracy | Pending - incomplete provider results | Pending - incomplete provider results |
+| Unsupported-question abstention | Pending - human review | Pending - human review |
+| Citation validity | Pending - incomplete provider results | Pending - incomplete provider results |
+| Source relevance | Pending - human review | Pending - human review |
+| Average latency | Recorded in `eval/rag_comparison.md` | Recorded in `eval/rag_comparison.md` |
+| Overall winner | Not established | Not established |

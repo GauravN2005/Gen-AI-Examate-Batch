@@ -2,10 +2,11 @@ import json
 from pathlib import Path
 from typing import Annotated, Any
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Response
 from pydantic import BaseModel, Field, field_validator
 
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
+from app.rag import answer_with_rag
 from app.records import get_by_id, load_records
 from app.smart_search import smart_search
 from app.vectorstore import query_chunks
@@ -43,6 +44,39 @@ class ChatResponse(BaseModel):
         return value
 
 
+class AskRequest(BaseModel):
+    question: str = Field(..., min_length=1)
+    top_k: int = Field(default=3, gt=0)
+
+    @field_validator("question")
+    @classmethod
+    def question_must_not_be_blank(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Question cannot be blank")
+        return value
+
+
+class Citation(BaseModel):
+    chunk_id: str
+    title: str
+    source_url: str
+    page: int | None = None
+
+
+class AskResponse(BaseModel):
+    question: str
+    answer: str
+    citations: list[Citation]
+    confidence: str
+
+    @field_validator("confidence")
+    @classmethod
+    def confidence_must_be_valid(cls, value: str) -> str:
+        if value not in {"high", "medium", "low"}:
+            raise ValueError("Confidence must be high, medium, or low")
+        return value
+
+
 def _prompt(filename: str) -> str:
     try:
         return (PROMPT_DIR / filename).read_text(encoding="utf-8")
@@ -55,6 +89,20 @@ def _prompt(filename: str) -> str:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "healthy", "service": "FundFacts"}
+
+
+@app.get("/")
+def root() -> dict[str, str]:
+    return {
+        "service": "FundFacts API",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon() -> Response:
+    return Response(status_code=204)
 
 
 @app.get("/records")
@@ -143,4 +191,24 @@ def chat(request: ChatRequest) -> ChatResponse:
     except ValueError as error:
         raise HTTPException(
             status_code=502, detail="The AI provider returned an invalid response."
+        ) from error
+
+
+@app.post("/ask", response_model=AskResponse)
+def ask(request: AskRequest) -> AskResponse:
+    try:
+        result = answer_with_rag(request.question, top_k=request.top_k)
+        return AskResponse(question=request.question, **result)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
+    except LLMConfigurationError as error:
+        raise HTTPException(status_code=503, detail=str(error)) from error
+    except LLMError as error:
+        raise HTTPException(
+            status_code=502, detail="The educational AI provider is unavailable."
+        ) from error
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503,
+            detail="RAG retrieval is not initialized. Build the Chroma index first.",
         ) from error

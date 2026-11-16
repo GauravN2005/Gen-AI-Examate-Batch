@@ -1,0 +1,272 @@
+{
+  "collection_counts": {
+    "A": 61,
+    "B": 44
+  },
+  "results": [
+    {
+      "config": "A",
+      "case_id": "Q01",
+      "question": "What is a SIP, and how does investing a fixed amount every month work?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 2.018
+    },
+    {
+      "config": "A",
+      "case_id": "Q02",
+      "question": "What does NAV mean, and does a lower NAV mean that a fund is cheaper?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7039
+    },
+    {
+      "config": "A",
+      "case_id": "Q03",
+      "question": "What is the difference between a direct plan and a regular plan?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7432
+    },
+    {
+      "config": "A",
+      "case_id": "Q04",
+      "question": "What does the Riskometer tell me about a mutual fund scheme?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7268
+    },
+    {
+      "config": "A",
+      "case_id": "Q05",
+      "question": "What is KYC, and why do I need to complete it before investing?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8455
+    },
+    {
+      "config": "A",
+      "case_id": "Q06",
+      "question": "Which mutual fund will give me the highest guaranteed return next month?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0178
+    },
+    {
+      "config": "A",
+      "case_id": "Q07",
+      "question": "What warning signs should I look for if someone promises me a guaranteed mutual fund return?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0182
+    },
+    {
+      "config": "A",
+      "case_id": "Q08",
+      "question": "What is an expense ratio, and how can it affect my investment?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8163
+    },
+    {
+      "config": "A",
+      "case_id": "Q09",
+      "question": "What is the difference between an STP and an SWP?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.9503
+    },
+    {
+      "config": "A",
+      "case_id": "Q10",
+      "question": "What is an exit load, and what is nomination used for in a mutual fund account?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7122
+    },
+    {
+      "config": "A",
+      "case_id": "Q11",
+      "question": "Why does diversification not remove all mutual fund risk?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7253
+    },
+    {
+      "config": "A",
+      "case_id": "Q12",
+      "question": "How does a Systematic Transfer Plan move money between schemes?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8573
+    },
+    {
+      "config": "A",
+      "case_id": "Q13",
+      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.972
+    },
+    {
+      "config": "A",
+      "case_id": "Q14",
+      "question": "Does a SIP guarantee profit when the market falls?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0263
+    },
+    {
+      "config": "A",
+      "case_id": "Q15",
+      "question": "What should I read to understand a scheme's objective, risks, and expenses?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8228
+    },
+    {
+      "config": "B",
+      "case_id": "Q01",
+      "question": "What is a SIP, and how does investing a fixed amount every month work?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.9684
+    },
+    {
+      "config": "B",
+      "case_id": "Q02",
+      "question": "What does NAV mean, and does a lower NAV mean that a fund is cheaper?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.9713
+    },
+    {
+      "config": "B",
+      "case_id": "Q03",
+      "question": "What is the difference between a direct plan and a regular plan?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.9296
+    },
+    {
+      "config": "B",
+      "case_id": "Q04",
+      "question": "What does the Riskometer tell me about a mutual fund scheme?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 1.0154
+    },
+    {
+      "config": "B",
+      "case_id": "Q05",
+      "question": "What is KYC, and why do I need to complete it before investing?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8668
+    },
+    {
+      "config": "B",
+      "case_id": "Q06",
+      "question": "Which mutual fund will give me the highest guaranteed return next month?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0278
+    },
+    {
+      "config": "B",
+      "case_id": "Q07",
+      "question": "What warning signs should I look for if someone promises me a guaranteed mutual fund return?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0313
+    },
+    {
+      "config": "B",
+      "case_id": "Q08",
+      "question": "What is an expense ratio, and how can it affect my investment?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7545
+    },
+    {
+      "config": "B",
+      "case_id": "Q09",
+      "question": "What is the difference between an STP and an SWP?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8728
+    },
+    {
+      "config": "B",
+      "case_id": "Q10",
+      "question": "What is an exit load, and what is nomination used for in a mutual fund account?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8409
+    },
+    {
+      "config": "B",
+      "case_id": "Q11",
+      "question": "Why does diversification not remove all mutual fund risk?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7189
+    },
+    {
+      "config": "B",
+      "case_id": "Q12",
+      "question": "How does a Systematic Transfer Plan move money between schemes?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7115
+    },
+    {
+      "config": "B",
+      "case_id": "Q13",
+      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.8761
+    },
+    {
+      "config": "B",
+      "case_id": "Q14",
+      "question": "Does a SIP guarantee profit when the market falls?",
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0399
+    },
+    {
+      "config": "B",
+      "case_id": "Q15",
+      "question": "What should I read to understand a scheme's objective, risks, and expenses?",
+      "response": null,
+      "error": "LLMProviderError",
+      "latency_seconds": 0.7885
+    }
+  ]
+}
