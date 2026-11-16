@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Annotated, Any
 
 from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field, field_validator
 
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
@@ -100,6 +101,11 @@ def root() -> dict[str, str]:
     }
 
 
+@app.get("/doc", include_in_schema=False)
+def doc_redirect() -> RedirectResponse:
+    return RedirectResponse(url="/docs", status_code=307)
+
+
 @app.get("/favicon.ico", include_in_schema=False)
 def favicon() -> Response:
     return Response(status_code=204)
@@ -192,6 +198,14 @@ def chat(request: ChatRequest) -> ChatResponse:
         raise HTTPException(
             status_code=502, detail="The AI provider returned an invalid response."
         ) from error
+
+
+@app.get("/chat", include_in_schema=False)
+def chat_help() -> dict[str, str]:
+    return {
+        "message": "Use POST /chat with a JSON body containing a message.",
+        "docs": "/docs",
+    }
 
 
 @app.post("/ask", response_model=AskResponse)

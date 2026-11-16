@@ -239,8 +239,10 @@ GEMINI_API_KEY=PASTE_YOUR_OWN_KEY_HERE
 
 `.env` is ignored by Git. The safe template is [.env.example](.env.example).
 The provider wrapper in [app/llm.py](app/llm.py) loads the key from the
-environment, creates the Gemini client only for a request, requests JSON
-output, and converts configuration or provider failures into safe API errors.
+environment, uses the Gemini `v1beta` API for JSON mode, and creates the
+Gemini client only for a request. The default model is
+`gemini-3.5-flash-lite` and can be overridden with `GEMINI_MODEL`. Provider
+configuration and availability failures are converted into safe API errors.
 
 ### Prompts and chat
 
@@ -286,7 +288,9 @@ Start and test the service with:
 uvicorn app.main:app --reload
 ```
 
-Then open `http://127.0.0.1:8000/docs` and try `POST /chat`.
+Then open `http://127.0.0.1:8000/docs` and try `POST /chat`. Opening
+`GET /chat` directly returns usage instructions; send a JSON body for an AI
+response.
 
 ## Day 7 – Semantic Search and ChromaDB
 
