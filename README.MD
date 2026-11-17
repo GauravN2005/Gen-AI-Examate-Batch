@@ -386,3 +386,82 @@ The automated winner is **Configuration B** under the rule that prioritizes
 answerability, citation validity, source relevance, and response format, with
 lower latency as the tie-breaker. Factual correctness still requires human
 review.
+
+## Agent Tools and LangGraph
+
+The agent feature adds two bounded workflows while preserving the existing
+`/ask`, `/chat`, and semantic-search endpoints:
+
+- The hand-written agent in `app/agent_loop.py` transparently routes an
+  educational question to the existing RAG pipeline, a calculation request to
+  the deterministic SIP tool, or a combined request to both.
+- The LangGraph workflow in `app/graph.py` uses typed state, conditional
+  routing, one approval interrupt, and a SQLite-backed checkpointer.
+
+### SIP rupee-cost averaging tool
+
+`app/tools.py` supports two calculation modes:
+
+1. **NAV-based calculation:** provide a positive monthly SIP and a list of
+   monthly NAVs. It calculates monthly units, total investment, accumulated
+   units, weighted average cost, final value at the last NAV, and gain or loss.
+2. **Assumed-return projection:** provide a monthly SIP, annual return
+   assumption, number of years, and optionally a yearly step-up percentage.
+   The annual return is converted to an effective monthly rate. Contributions
+   occur at the **end of each month**, and the monthly schedule reports the
+   projected balance. This is illustrative: it does not claim historical NAVs
+   or actual units.
+
+Inputs are validated in deterministic Python using `Decimal`; no LLM performs
+arithmetic. Calculations are educational illustrations, not investment advice.
+
+The official SEBI worked example was verified at
+[SEBI Module 4 Chapter 16](https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html):
+₹6,000 invested at NAVs ₹60, ₹50, ₹40, and ₹60 buys 100, 120, 150, and 100
+units. The result is ₹24,000 invested, 470 units, an average cost of ₹51.06,
+and a final value of ₹28,200.
+
+### Conversation memory and approval
+
+Each LangGraph request uses a caller-supplied `thread_id`. The SQLite
+checkpointer keeps threads separate and preserves a pending approval so the
+same thread can resume. This local persistence has been tested during the
+current run; it should not be treated as a cross-deployment memory service.
+
+SIP calculations require one human approval because they are illustrative
+financial calculations. The graph never runs the calculator before approval.
+Rejection returns a cancellation response, and repeated approval after
+completion is rejected because there is no longer a pending approval.
+
+### `POST /agent`
+
+Install dependencies and start the API:
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Open the interactive API documentation at
+`http://127.0.0.1:8000/docs`.
+
+Start a calculation:
+
+```bash
+curl -X POST http://127.0.0.1:8000/agent \
+  -H "Content-Type: application/json" \
+  -d "{\"thread_id\":\"demo-session-1\",\"message\":\"Calculate a monthly SIP of 1000 with NAVs 10, 8, 12, 10\"}"
+```
+
+The response is `approval_required` and shows the proposed inputs. Resume the
+same thread only after reviewing them:
+
+```bash
+curl -X POST http://127.0.0.1:8000/agent \
+  -H "Content-Type: application/json" \
+  -d "{\"thread_id\":\"demo-session-1\",\"approved\":true}"
+```
+
+Use `"approved": false` to cancel. Approval requests with an unknown or
+already-completed thread are rejected. Educational questions do not require
+approval and return the normal RAG answer with genuine source citations.

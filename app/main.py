@@ -4,8 +4,10 @@ from typing import Annotated, Any
 
 from fastapi import FastAPI, HTTPException, Query, Response
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from langgraph.types import Command
 
+from app.graph import agent_graph
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
 from app.rag import answer_with_rag
 from app.records import get_by_id, load_records
@@ -76,6 +78,43 @@ class AskResponse(BaseModel):
         if value not in {"high", "medium", "low"}:
             raise ValueError("Confidence must be high, medium, or low")
         return value
+
+
+class AgentRequest(BaseModel):
+    thread_id: str = Field(..., min_length=1)
+    message: str | None = None
+    approved: bool | None = None
+
+    @field_validator("thread_id")
+    @classmethod
+    def thread_id_must_not_be_blank(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("thread_id cannot be blank")
+        return value.strip()
+
+    @field_validator("message")
+    @classmethod
+    def message_must_not_be_blank(cls, value: str | None) -> str | None:
+        if value is not None and not value.strip():
+            raise ValueError("message cannot be blank")
+        return value.strip() if value is not None else None
+
+
+class AgentResponse(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    thread_id: str
+    status: str
+    message: str | None = None
+    proposed_action: str | None = None
+    proposed_inputs: dict[str, Any] | None = None
+    intent: str | None = None
+    answer: str | None = None
+    citations: list[dict[str, Any]] = Field(default_factory=list)
+    confidence: str | None = None
+    calculation: dict[str, Any] | None = None
+    educational_context: dict[str, Any] | None = None
+    abstained: bool | None = None
 
 
 def _prompt(filename: str) -> str:
@@ -226,3 +265,48 @@ def ask(request: AskRequest) -> AskResponse:
             status_code=503,
             detail="RAG retrieval is not initialized. Build the Chroma index first.",
         ) from error
+
+
+@app.post("/agent")
+def agent(request: AgentRequest) -> AgentResponse:
+    config = {"configurable": {"thread_id": request.thread_id}}
+    is_approval = request.message is None and request.approved is not None
+    is_new_request = request.message is not None and request.approved is None
+    if not is_approval and not is_new_request:
+        raise HTTPException(
+            status_code=422,
+            detail="Provide either message for a new request or approved for a pending request.",
+        )
+    try:
+        if is_new_request:
+            result = agent_graph.invoke({"message": request.message}, config)
+        else:
+            state = agent_graph.get_state(config)
+            if not state.values or "approval" not in state.next:
+                raise HTTPException(
+                    status_code=404,
+                    detail="No pending approval exists for this thread.",
+                )
+            result = agent_graph.invoke(Command(resume=request.approved), config)
+    except HTTPException:
+        raise
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
+    except RuntimeError as error:
+        raise HTTPException(
+            status_code=503, detail="The agent workflow is unavailable."
+        ) from error
+    except Exception as error:
+        raise HTTPException(
+            status_code=500, detail="The agent request could not be completed."
+        ) from error
+
+    interrupts = result.get("__interrupt__", [])
+    if interrupts:
+        pending = interrupts[0]
+        value = getattr(pending, "value", pending)
+        return AgentResponse.model_validate({"thread_id": request.thread_id, **value})
+    response = result.get("response")
+    if not response:
+        raise HTTPException(status_code=500, detail="The agent returned no response.")
+    return AgentResponse.model_validate({"thread_id": request.thread_id, **response})

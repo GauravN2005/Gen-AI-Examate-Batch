@@ -11,3 +11,5 @@ groq
 python-dotenv
 chromadb
 sentence-transformers
+langgraph
+langgraph-checkpoint-sqlite

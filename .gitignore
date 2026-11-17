@@ -22,5 +22,8 @@ __pycache__/
 .env.*
 !.env.example
 data/chroma_db/
+data/agent_memory.sqlite3
+data/agent_memory.sqlite3-shm
+data/agent_memory.sqlite3-wal
 .vscode/
 .idea/
