@@ -387,7 +387,7 @@ answerability, citation validity, source relevance, and response format, with
 lower latency as the tie-breaker. Factual correctness still requires human
 review.
 
-## Agent Tools and LangGraph
+## Day 9 Agent Tools and LangGraph
 
 The agent feature adds two bounded workflows while preserving the existing
 `/ask`, `/chat`, and semantic-search endpoints:
