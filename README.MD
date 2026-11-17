@@ -335,7 +335,8 @@ answered by semantic retrieval because it asks for a guaranteed future return.
 
 Day 8 adds Retrieval-Augmented Generation (RAG) through
 [app/rag.py](app/rag.py). The pipeline retrieves actual SEBI chunks from
-ChromaDB, checks evidence and safety constraints, then asks Gemini to generate
+ChromaDB, checks evidence and safety constraints, then asks the configured LLM
+provider to generate
 a beginner-friendly answer grounded only in those chunks. Responses include
 the retrieved chunk IDs, titles, URLs, and page values as citations.
 
@@ -362,20 +363,26 @@ The script records provider outputs, citations, retrieval metadata, abstention
 checks, and latency in `eval/rag_results.json`. Factual correctness and source
 relevance require human review. The comparison summary is
 `eval/rag_comparison.md`; no winner is declared when results are incomplete or
-inconclusive. Gemini must be configured in the existing local `.env`, and the
-key is never stored in evaluation output.
+inconclusive. Configure the selected provider in the local `.env`; keys are
+never stored in evaluation output.
 
 ### Day 8 evaluation status
 
-Evaluation date: **2026-11-16**. Both indexes were built independently, but the
-provider evaluation was incomplete because Gemini responses were not available
-for all supported cases. Therefore no configuration winner is declared.
+Evaluation date: **2026-11-16**. Both indexes were built independently and all
+30 provider evaluation slots completed with Groq
+(`openai/gpt-oss-20b`).
 
 | Metric | Config A (400 chars, k=3) | Config B (800 chars, k=5) |
 |---|---|---|
-| Answerability accuracy | Pending - incomplete provider results | Pending - incomplete provider results |
-| Unsupported-question abstention | Pending - human review | Pending - human review |
-| Citation validity | Pending - incomplete provider results | Pending - incomplete provider results |
-| Source relevance | Pending - human review | Pending - human review |
-| Average latency | Recorded in `eval/rag_comparison.md` | Recorded in `eval/rag_comparison.md` |
-| Overall winner | Not established | Not established |
+| Answerability accuracy | 9/15 | 10/15 |
+| Unsupported-question abstention | 2/2 | 2/2 |
+| Citation validity (automated) | 5/15 | 5/15 |
+| Source relevance (automated URL match) | 7/13 | 8/13 |
+| Response format validity | 15/15 | 15/15 |
+| Average latency | 1.375s | 6.517s |
+| Overall winner | Configuration B | Configuration B |
+
+The automated winner is **Configuration B** under the rule that prioritizes
+answerability, citation validity, source relevance, and response format, with
+lower latency as the tie-breaker. Factual correctness still requires human
+review.

@@ -8,265 +8,838 @@
       "config": "A",
       "case_id": "Q01",
       "question": "What is a SIP, and how does investing a fixed amount every month work?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 2.018
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "A SIP is a Systematic Investment Plan that lets you invest a fixed amount at regular intervals, usually monthly, into a chosen mutual‑fund scheme. You pick the amount and the scheme, and the money is automatically deducted from your account each month. You can pause, modify, increase or stop the SIP at any time.",
+        "citations": [
+          {
+            "chunk_id": "7750693533c5bbaebece51e7",
+            "title": "Systematic Investment Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "09b3dbbcae750c4e28bb903b",
+            "title": "Setting one up",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "a75f30bbb0e3592fb123e147",
+            "title": "Step-up SIP",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 1.2461
     },
     {
       "config": "A",
       "case_id": "Q02",
       "question": "What does NAV mean, and does a lower NAV mean that a fund is cheaper?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7039
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "NAV stands for Net Asset Value, which is the per-unit value of a mutual fund scheme. It is calculated as the total market value of the scheme’s assets minus its liabilities, divided by the number of units outstanding. I don't know if a lower NAV means the fund is cheaper.",
+        "citations": [
+          {
+            "chunk_id": "cc4c053384f7bf5f7c07210b",
+            "title": "Net Asset Value",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "50b74303513b700413f0461b",
+            "title": "Growth plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "3033c4ea8fac19b64346c6a5",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 1.8426
     },
     {
       "config": "A",
       "case_id": "Q03",
       "question": "What is the difference between a direct plan and a regular plan?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7432
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.8418
     },
     {
       "config": "A",
       "case_id": "Q04",
       "question": "What does the Riskometer tell me about a mutual fund scheme?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7268
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "The Risk‑o‑meter is a standardised dial that shows the risk level of a mutual fund scheme. It is calculated by a prescribed method and updated every month.",
+        "citations": [
+          {
+            "chunk_id": "8f1ba56fbc068e542f6b4a0b",
+            "title": "The factsheet: where the answers actually are",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "267bb36a48bee6da4a2a62ec",
+            "title": "The Risk-o-meter",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "8d36d264ff0e11f3ab7dffd3",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          }
+        ],
+        "confidence": "high"
+      },
+      "error": null,
+      "latency_seconds": 1.0273
     },
     {
       "config": "A",
       "case_id": "Q05",
       "question": "What is KYC, and why do I need to complete it before investing?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8455
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.9981
     },
     {
       "config": "A",
       "case_id": "Q06",
       "question": "Which mutual fund will give me the highest guaranteed return next month?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0178
+      "latency_seconds": 0.0196
     },
     {
       "config": "A",
       "case_id": "Q07",
       "question": "What warning signs should I look for if someone promises me a guaranteed mutual fund return?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0182
+      "latency_seconds": 0.0195
     },
     {
       "config": "A",
       "case_id": "Q08",
       "question": "What is an expense ratio, and how can it affect my investment?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8163
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "An expense ratio is the yearly fee a fund company charges for running the fund, shown as a percentage of the fund’s assets. It covers things like management, admin, marketing, commissions, operating costs and trading charges. Because it is taken out of the fund’s assets, a higher expense ratio reduces the money that grows for you and the effect adds up over many years.",
+        "citations": [
+          {
+            "chunk_id": "1656563316918dfc84556f74",
+            "title": "Total Expense Ratio",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "def5b1878dd7b5d4099ac72d",
+            "title": "Reading returns correctly",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "3033c4ea8fac19b64346c6a5",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 1.2084
     },
     {
       "config": "A",
       "case_id": "Q09",
       "question": "What is the difference between an STP and an SWP?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.9503
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "An STP (Systematic Transfer Plan) moves a fixed amount of money from one scheme to another within the same fund house at regular intervals. An SWP (Systematic Withdrawal Plan) takes a fixed amount out of your scheme at regular intervals and sends it to your bank account. In short, STP transfers money between schemes, while SWP withdraws money to you.",
+        "citations": [
+          {
+            "chunk_id": "11a08978801b2603bacc3040",
+            "title": "Systematic Transfer Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "101224eb73e9235d4e9e4203",
+            "title": "Systematic Withdrawal Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "high"
+      },
+      "error": null,
+      "latency_seconds": 0.9251
     },
     {
       "config": "A",
       "case_id": "Q10",
       "question": "What is an exit load, and what is nomination used for in a mutual fund account?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7122
-    },
-    {
-      "config": "A",
-      "case_id": "Q11",
-      "question": "Why does diversification not remove all mutual fund risk?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7253
-    },
-    {
-      "config": "A",
-      "case_id": "Q12",
-      "question": "How does a Systematic Transfer Plan move money between schemes?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8573
-    },
-    {
-      "config": "A",
-      "case_id": "Q13",
-      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.972
-    },
-    {
-      "config": "A",
-      "case_id": "Q14",
-      "question": "Does a SIP guarantee profit when the market falls?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0263
+      "latency_seconds": 1.7234
+    },
+    {
+      "config": "A",
+      "case_id": "Q11",
+      "question": "Why does diversification not remove all mutual fund risk?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "Diversification only removes company‑specific risk, not the overall market risk that affects all stocks. So a mutual fund still carries equity risk.",
+        "citations": [
+          {
+            "chunk_id": "3033c4ea8fac19b64346c6a5",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "782f6cae052c7454ca4995c5",
+            "title": "By market capitalisation (equity funds)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "e506568485ce47d21ffffaa5",
+            "title": "By market capitalisation (equity funds)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 2.2402
+    },
+    {
+      "config": "A",
+      "case_id": "Q12",
+      "question": "How does a Systematic Transfer Plan move money between schemes?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "A Systematic Transfer Plan (STP) moves a fixed amount of money from one scheme to another at regular, predetermined intervals, and it does so within the same fund house.",
+        "citations": [
+          {
+            "chunk_id": "11a08978801b2603bacc3040",
+            "title": "Systematic Transfer Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "50b74303513b700413f0461b",
+            "title": "Growth plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "b905a482037891cb0732fb80",
+            "title": "What a SIP actually achieves",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 0.5897
+    },
+    {
+      "config": "A",
+      "case_id": "Q13",
+      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.8846
+    },
+    {
+      "config": "A",
+      "case_id": "Q14",
+      "question": "Does a SIP guarantee profit when the market falls?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0221
     },
     {
       "config": "A",
       "case_id": "Q15",
       "question": "What should I read to understand a scheme's objective, risks, and expenses?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8228
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 400,
+      "top_k": 3,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 7.0299
     },
     {
       "config": "B",
       "case_id": "Q01",
       "question": "What is a SIP, and how does investing a fixed amount every month work?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.9684
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "A SIP, or Systematic Investment Plan, is a way to invest a fixed amount of money at regular intervals—usually every month, but sometimes weekly or quarterly—into a chosen mutual fund scheme. By putting the same amount in each period, you spread out your purchases over time, which can help smooth out market fluctuations through rupee‑cost averaging.",
+        "citations": [
+          {
+            "chunk_id": "f68a468859960423da0b4ecd",
+            "title": "Systematic Investment Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "6fa4707377358a8bb57dea60",
+            "title": "Step-up SIP",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "bf09d3631191543ed46d40d3",
+            "title": "Setting one up",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "e61651a97f31019ccfff59e5",
+            "title": "What a SIP actually achieves",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "fc509dd006fd3262e4305c8c",
+            "title": "Three facilities, one principle",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 10.0243
     },
     {
       "config": "B",
       "case_id": "Q02",
       "question": "What does NAV mean, and does a lower NAV mean that a fund is cheaper?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.9713
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "NAV stands for Net Asset Value, which is the per‑unit value of a mutual fund. It is calculated as the total market value of the scheme’s assets minus its liabilities, divided by the number of units outstanding. A lower NAV does not automatically mean the fund is cheaper; it simply reflects the current price per unit of the fund’s holdings.",
+        "citations": [
+          {
+            "chunk_id": "8324f859d902f11872681d15",
+            "title": "Net Asset Value",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "50b74303513b700413f0461b",
+            "title": "Growth plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "e9e76b6c317129511846e1f6",
+            "title": "Total Expense Ratio",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "8dafda862762272e5baed635",
+            "title": "By management style",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "b7a851fa277a1faf2ef38b53",
+            "title": "Where the real information is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 5.6402
     },
     {
       "config": "B",
       "case_id": "Q03",
       "question": "What is the difference between a direct plan and a regular plan?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.9296
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 7.093
     },
     {
       "config": "B",
       "case_id": "Q04",
       "question": "What does the Riskometer tell me about a mutual fund scheme?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 1.0154
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "It shows the scheme’s risk level on a dial, updated every month.",
+        "citations": [
+          {
+            "chunk_id": "c52c796d06fad772c2b32c57",
+            "title": "The factsheet: where the answers actually are",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "267bb36a48bee6da4a2a62ec",
+            "title": "The Risk-o-meter",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "4e040e426be57663095ab97c",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "6582845bc30844c06c7b5d53",
+            "title": "Debt fund categories",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "b397fc7e0eaec4f76cf159db",
+            "title": "Statement of Additional Information (SAI)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 6.4625
     },
     {
       "config": "B",
       "case_id": "Q05",
       "question": "What is KYC, and why do I need to complete it before investing?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8668
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 8.3409
     },
     {
       "config": "B",
       "case_id": "Q06",
       "question": "Which mutual fund will give me the highest guaranteed return next month?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0278
+      "latency_seconds": 0.0258
     },
     {
       "config": "B",
       "case_id": "Q07",
       "question": "What warning signs should I look for if someone promises me a guaranteed mutual fund return?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0313
+      "latency_seconds": 0.0312
     },
     {
       "config": "B",
       "case_id": "Q08",
       "question": "What is an expense ratio, and how can it affect my investment?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7545
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "An expense ratio is the yearly fee a fund charges, shown as a percentage of the money you invest. It covers things like fund management, admin, marketing, and trading costs. The higher the ratio, the more of your money goes to fees, which reduces the return you get, especially over many years.",
+        "citations": [
+          {
+            "chunk_id": "e9e76b6c317129511846e1f6",
+            "title": "Total Expense Ratio",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "def5b1878dd7b5d4099ac72d",
+            "title": "Reading returns correctly",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "e92ca09811043a26664868e0",
+            "title": "Key Information Memorandum (KIM)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "c97aa73fc3676c25889671b9",
+            "title": "By market capitalisation (equity funds)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "4e040e426be57663095ab97c",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          }
+        ],
+        "confidence": "high"
+      },
+      "error": null,
+      "latency_seconds": 7.3668
     },
     {
       "config": "B",
       "case_id": "Q09",
       "question": "What is the difference between an STP and an SWP?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8728
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "An STP moves a fixed amount from one scheme to another at fixed intervals within the same fund house. An SWP takes a fixed amount out of your scheme at fixed intervals and sends it to your bank account.",
+        "citations": [
+          {
+            "chunk_id": "d8bcf7900f96e91053ef4bd4",
+            "title": "Systematic Transfer Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "101224eb73e9235d4e9e4203",
+            "title": "Systematic Withdrawal Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 4.1537
     },
     {
       "config": "B",
       "case_id": "Q10",
       "question": "What is an exit load, and what is nomination used for in a mutual fund account?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8409
-    },
-    {
-      "config": "B",
-      "case_id": "Q11",
-      "question": "Why does diversification not remove all mutual fund risk?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7189
-    },
-    {
-      "config": "B",
-      "case_id": "Q12",
-      "question": "How does a Systematic Transfer Plan move money between schemes?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7115
-    },
-    {
-      "config": "B",
-      "case_id": "Q13",
-      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.8761
-    },
-    {
-      "config": "B",
-      "case_id": "Q14",
-      "question": "Does a SIP guarantee profit when the market falls?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
       "response": {
         "answer": "I don't know",
         "citations": [],
         "confidence": "low"
       },
       "error": null,
-      "latency_seconds": 0.0399
+      "latency_seconds": 14.2854
+    },
+    {
+      "config": "B",
+      "case_id": "Q11",
+      "question": "Why does diversification not remove all mutual fund risk?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "Diversification in a mutual fund spreads the money across many companies, so the risk that one company will do badly is reduced. But it does not remove the risk that the whole market goes up or down – that market risk stays. So diversification cuts company‑specific risk, not market risk.",
+        "citations": [
+          {
+            "chunk_id": "4e040e426be57663095ab97c",
+            "title": "What a mutual fund is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "c97aa73fc3676c25889671b9",
+            "title": "By market capitalisation (equity funds)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "3b34e471fdcbab441a1c2339",
+            "title": "By speciality",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "bbdd7211129120507bf32304",
+            "title": "Start with the goal, not the fund",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "1adc80e72feac5efa7ac5a31",
+            "title": "The categories",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 9.1964
+    },
+    {
+      "config": "B",
+      "case_id": "Q12",
+      "question": "How does a Systematic Transfer Plan move money between schemes?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "A Systematic Transfer Plan (STP) moves a fixed amount of money from one scheme to another at regular, set intervals, but only between schemes that belong to the same fund house.",
+        "citations": [
+          {
+            "chunk_id": "d8bcf7900f96e91053ef4bd4",
+            "title": "Systematic Transfer Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "50b74303513b700413f0461b",
+            "title": "Growth plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-01.html",
+            "page": null
+          },
+          {
+            "chunk_id": "101224eb73e9235d4e9e4203",
+            "title": "Systematic Withdrawal Plan",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "e61651a97f31019ccfff59e5",
+            "title": "What a SIP actually achieves",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          },
+          {
+            "chunk_id": "fc509dd006fd3262e4305c8c",
+            "title": "Three facilities, one principle",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-03.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 4.6439
+    },
+    {
+      "config": "B",
+      "case_id": "Q13",
+      "question": "Can you tell me which specific mutual fund I should buy for my goals?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 13.1162
+    },
+    {
+      "config": "B",
+      "case_id": "Q14",
+      "question": "Does a SIP guarantee profit when the market falls?",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "I don't know",
+        "citations": [],
+        "confidence": "low"
+      },
+      "error": null,
+      "latency_seconds": 0.0238
     },
     {
       "config": "B",
       "case_id": "Q15",
       "question": "What should I read to understand a scheme's objective, risks, and expenses?",
-      "response": null,
-      "error": "LLMProviderError",
-      "latency_seconds": 0.7885
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "chunk_size": 800,
+      "top_k": 5,
+      "response": {
+        "answer": "Read the Scheme Information Document (SID) to learn the scheme’s objective and risk factors, and check the monthly factsheet for details on expenses.",
+        "citations": [
+          {
+            "chunk_id": "b7a851fa277a1faf2ef38b53",
+            "title": "Where the real information is",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "c52c796d06fad772c2b32c57",
+            "title": "The factsheet: where the answers actually are",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "2decdda47e8e1a08cfc2eddf",
+            "title": "Scheme Information Document (SID)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "c275a7d87d241dc3a04f64cd",
+            "title": "A practical selection process",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          },
+          {
+            "chunk_id": "b397fc7e0eaec4f76cf159db",
+            "title": "Statement of Additional Information (SAI)",
+            "source_url": "https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html",
+            "page": null
+          }
+        ],
+        "confidence": "medium"
+      },
+      "error": null,
+      "latency_seconds": 7.3525
     }
   ]
 }

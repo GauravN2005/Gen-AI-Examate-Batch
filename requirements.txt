@@ -7,6 +7,7 @@ uvicorn
 pandas
 scikit-learn
 google-genai
+groq
 python-dotenv
 chromadb
 sentence-transformers
