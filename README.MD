@@ -465,3 +465,56 @@ curl -X POST http://127.0.0.1:8000/agent \
 Use `"approved": false` to cancel. Approval requests with an unknown or
 already-completed thread are rejected. Educational questions do not require
 approval and return the normal RAG answer with genuine source citations.
+
+## Day 10 – Streamlit UI and Checkpoint 2
+
+The Streamlit interface in [ui/app.py](ui/app.py) provides a beginner-friendly
+FundFacts chat surface for SchemeSaathi. It calls the existing `/ask` endpoint
+for ordinary educational questions and `/agent` for SIP calculations requiring
+thread memory and human approval. Returned citations are displayed in an
+expandable **Sources and citations** section.
+
+The UI preserves chat history in Streamlit session state and stores replaceable
+thumbs-up/down feedback as UTF-8 JSON Lines in `data/feedback.jsonl`. This
+personal feedback file is ignored by Git and contains no API keys.
+
+### Education, not advice
+
+Recommendation requests are blocked by a deterministic shared guard before any
+LLM call. The fixed refusal card explains that FundFacts provides education, not
+personalised investment advice. It links to two verified SEBI resources:
+
+- [Choosing a Mutual Fund Scheme](https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-02.html)
+- [Five Rules That Protect You](https://investor.sebi.gov.in/ssis/investing-through-mutual-funds-04.html)
+
+The second resource displays a checklist covering guaranteed-return claims,
+verification before payment, sensitive credentials, urgency, and rapid
+reporting. The same guard is enforced at the FastAPI `/ask` and `/agent`
+boundaries, so direct API calls cannot bypass it.
+
+### Run the Checkpoint 2 demo
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+In another terminal:
+
+```bash
+streamlit run ui/app.py
+```
+
+- Backend: `http://127.0.0.1:8000/docs`
+- Streamlit: `http://localhost:8501`
+
+The short trainer walkthrough is in
+[docs/checkpoint2_demo.md](docs/checkpoint2_demo.md). Verify the live UI and
+capture the required screenshot manually before creating the `checkpoint-2`
+tag.
+
+![FundFacts Streamlit Checkpoint 2](docs/checkpoint2_streamlit.png)
+
+The deterministic refusal card was also captured during the live UI check:
+
+![FundFacts Education, not advice guard](docs/checkpoint2_education_guard.png)

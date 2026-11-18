@@ -13,3 +13,4 @@ chromadb
 sentence-transformers
 langgraph
 langgraph-checkpoint-sqlite
+streamlit

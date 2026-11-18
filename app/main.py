@@ -7,6 +7,7 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from langgraph.types import Command
 
+from app.education_guard import is_recommendation_request, refusal_response
 from app.graph import agent_graph
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
 from app.rag import answer_with_rag
@@ -211,6 +212,8 @@ def answer_question(request: QuestionRequest) -> dict[str, Any]:
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest) -> ChatResponse:
+    if is_recommendation_request(request.message):
+        raise HTTPException(status_code=400, detail=refusal_response())
     matches = smart_search(request.message, top_k=5)
     context = json.dumps(
         [match["record"] for match in matches],
@@ -249,6 +252,11 @@ def chat_help() -> dict[str, str]:
 
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest) -> AskResponse:
+    if is_recommendation_request(request.question):
+        raise HTTPException(
+            status_code=400,
+            detail=refusal_response(),
+        )
     try:
         result = answer_with_rag(request.question, top_k=request.top_k)
         return AskResponse(question=request.question, **result)
@@ -269,6 +277,11 @@ def ask(request: AskRequest) -> AskResponse:
 
 @app.post("/agent")
 def agent(request: AgentRequest) -> AgentResponse:
+    if request.message is not None and is_recommendation_request(request.message):
+        raise HTTPException(
+            status_code=400,
+            detail=refusal_response(),
+        )
     config = {"configurable": {"thread_id": request.thread_id}}
     is_approval = request.message is None and request.approved is not None
     is_new_request = request.message is not None and request.approved is None
