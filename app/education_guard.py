@@ -43,6 +43,9 @@ _RECOMMENDATION_PATTERNS = (
     r".{0,50}\b(?:buy|invest|choose|recommend|pick)\b",
     r"\b(?:buy|invest\s+in|recommend|pick|choose)\b.{0,50}"
     r"\b(?:mutual\s+fund|fund|stock|share|scheme)\b",
+    r"\b(?:tell|show|name)\b.{0,30}\b(?:which|what)\b.{0,30}"
+    r"\b(?:stock|share|fund|scheme)\b.{0,50}"
+    r"\b(?:purchase|buy|invest)\b",
     r"\b(?:mutual\s+fund|fund|stock|share|scheme|sip)\b.{0,60}"
     r"\b(?:highest|best|guarantee(?:d|s)?|assured)\b.{0,30}"
     r"\b(?:return|profit|buy|invest)\b",

@@ -200,6 +200,8 @@ def semantic_search(
 def answer_question(request: QuestionRequest) -> dict[str, Any]:
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be blank")
+    if is_recommendation_request(request.question):
+        raise HTTPException(status_code=400, detail=refusal_response())
 
     results = smart_search(request.question)
     message = (

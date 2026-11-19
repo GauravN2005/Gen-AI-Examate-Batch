@@ -142,7 +142,10 @@ def _display_assistant(message: dict[str, Any]) -> None:
 
 
 def _render_feedback(message: dict[str, Any]) -> None:
-    if message["role"] != "assistant" or message["response"].get("status") != "completed":
+    if message["role"] != "assistant":
+        return
+    status = message["response"].get("status")
+    if status not in {"completed", "refused", "cancelled"}:
         return
     message_id = message["id"]
     left, right = st.columns(2)
