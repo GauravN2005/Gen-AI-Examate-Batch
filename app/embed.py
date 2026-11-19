@@ -1,7 +1,6 @@
 import os
+from collections.abc import Iterable
 from functools import lru_cache
-from typing import Iterable
-
 
 DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 

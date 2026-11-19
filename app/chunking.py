@@ -1,9 +1,9 @@
 import hashlib
 import json
 import re
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
-
+from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RECORDS_FILE = BASE_DIR / "data" / "records.json"

@@ -518,3 +518,32 @@ tag.
 The deterministic refusal card was also captured during the live UI check:
 
 ![FundFacts Education, not advice guard](docs/checkpoint2_education_guard.png)
+
+[![CI](https://github.com/GauravN2005/Gen-AI-Examate-Batch/actions/workflows/ci.yml/badge.svg)](https://github.com/GauravN2005/Gen-AI-Examate-Batch/actions/workflows/ci.yml)
+
+## Day 11 - CI/CD and Live Deployment
+
+Day 11 adds:
+
+- GitHub Actions Ruff, pytest, and Docker-build checks.
+- A FastAPI production Docker image.
+- A separate Streamlit Docker image.
+- Local and hosted deployment documentation.
+
+Deployment status is not yet verified:
+
+| Item | Status |
+|---|---|
+| CI workflow | Prepared locally; GitHub run not yet verified |
+| Pull request | Not created by this local preparation |
+| Pull request merge | Not merged |
+| Hosting platform | Render, pending manual setup |
+| Backend live URL | `NOT_DEPLOYED` |
+| Streamlit live URL | `NOT_DEPLOYED` |
+| Public `/health` URL | `NOT_DEPLOYED` |
+| Public `/health` status | Not verified |
+
+The actual public backend URL must replace `NOT_DEPLOYED` only after manual
+deployment and verification. Instructions are in
+[docs/day11_deployment.md](docs/day11_deployment.md), and the manual PR process
+is in [docs/day11_pr_instructions.md](docs/day11_pr_instructions.md).

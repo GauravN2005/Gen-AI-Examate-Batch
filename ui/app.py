@@ -18,8 +18,10 @@ if str(ROOT) not in sys.path:
 from app.education_guard import is_recommendation_request, refusal_response
 from app.feedback_store import save_feedback
 
-
-BACKEND_URL = os.getenv("FUNFACTS_BACKEND_URL", "http://127.0.0.1:8000").rstrip("/")
+BACKEND_URL = os.getenv(
+    "API_BASE_URL",
+    os.getenv("FUNFACTS_BACKEND_URL", "http://127.0.0.1:8000"),
+).rstrip("/")
 FEEDBACK_FILE = ROOT / "data" / "feedback.jsonl"
 
 

@@ -5,7 +5,6 @@ from __future__ import annotations
 import re
 from typing import Any
 
-
 REFUSAL_HEADING = "Education, not advice"
 REFUSAL_MESSAGE = (
     "FundFacts provides financial education, not personalised investment advice. "
@@ -39,16 +38,16 @@ RESOURCES: tuple[dict[str, Any], ...] = (
 )
 
 _RECOMMENDATION_PATTERNS = (
-    r"\b(?:which|what|best|top)\b.{0,50}\b(?:mutual\s+fund|fund|stock|share|scheme)\b"
-    r".{0,50}\b(?:buy|invest|choose|recommend|pick)\b",
-    r"\b(?:buy|invest\s+in|recommend|pick|choose)\b.{0,50}"
-    r"\b(?:mutual\s+fund|fund|stock|share|scheme)\b",
-    r"\b(?:tell|show|name)\b.{0,30}\b(?:which|what)\b.{0,30}"
+    (r"\b(?:which|what|best|top)\b.{0,50}\b(?:mutual\s+fund|fund|stock|share|scheme)\b"
+    r".{0,50}\b(?:buy|invest|choose|recommend|pick)\b"),
+    (r"\b(?:buy|invest\s+in|recommend|pick|choose)\b.{0,50}"
+    r"\b(?:mutual\s+fund|fund|stock|share|scheme)\b"),
+    (r"\b(?:tell|show|name)\b.{0,30}\b(?:which|what)\b.{0,30}"
     r"\b(?:stock|share|fund|scheme)\b.{0,50}"
-    r"\b(?:purchase|buy|invest)\b",
-    r"\b(?:mutual\s+fund|fund|stock|share|scheme|sip)\b.{0,60}"
+    r"\b(?:purchase|buy|invest)\b"),
+    (r"\b(?:mutual\s+fund|fund|stock|share|scheme|sip)\b.{0,60}"
     r"\b(?:highest|best|guarantee(?:d|s)?|assured)\b.{0,30}"
-    r"\b(?:return|profit|buy|invest)\b",
+    r"\b(?:return|profit|buy|invest)\b"),
 )
 
 

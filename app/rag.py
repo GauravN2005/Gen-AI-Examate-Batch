@@ -2,9 +2,8 @@ import json
 import re
 from typing import Any
 
-from app.llm import LLMError, generate_chat_response
+from app.llm import generate_chat_response
 from app.vectorstore import query_chunks
-
 
 ABSTENTION = "I don't know"
 DEFAULT_TOP_K = 3
@@ -70,17 +69,14 @@ def answer_with_rag(
             "confidence": "low",
         }
 
-    try:
-        generated = generate_chat_response(
-            user_message=question,
-            system_prompt=(
-                "You are SchemeSaathi, a grounded FundFacts educational "
-                "assistant. Use only supplied SEBI evidence."
-            ),
-            task_prompt=_prompt(retrieved),
-        )
-    except LLMError:
-        raise
+    generated = generate_chat_response(
+        user_message=question,
+        system_prompt=(
+            "You are SchemeSaathi, a grounded FundFacts educational "
+            "assistant. Use only supplied SEBI evidence."
+        ),
+        task_prompt=_prompt(retrieved),
+    )
 
     answer = str(generated.get("answer", "")).strip()
     if not answer or answer == ABSTENTION:

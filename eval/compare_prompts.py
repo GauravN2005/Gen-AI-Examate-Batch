@@ -17,11 +17,11 @@ COMPARISON_FILE = ROOT / "eval" / "prompt_compare.md"
 def load_questions() -> list[str]:
     text = QUESTIONS_FILE.read_text(encoding="utf-8")
     questions = []
-    for match in re.finditer(r"^## (\d+)\..*?(?=^## \d+\.|\Z)", text, re.M | re.S):
+    for match in re.finditer(r"^## (\d+)\..*?(?=^## \d+\.|\Z)", text, re.MULTILINE | re.DOTALL):
         question = re.search(
             r"\*\*User question:\*\*\s*(.+?)(?=\n\n\*\*Related)",
             match.group(0),
-            re.S,
+            re.DOTALL,
         )
         if question:
             questions.append(" ".join(question.group(1).split()))
@@ -69,7 +69,7 @@ def run() -> int:
         return 0
 
     sys.path.insert(0, str(ROOT))
-    from app.llm import generate_chat_response
+    from app.llm import LLMError, generate_chat_response
     from app.smart_search import smart_search
 
     system_prompt = (PROMPT_DIR / "system_prompt.txt").read_text(
@@ -97,7 +97,7 @@ def run() -> int:
                     task_prompt=prompt.replace("{retrieved_context}", context),
                 )
                 item[f"{version}_automated_check"] = "Valid JSON object returned"
-            except Exception as error:
+            except (LLMError, ValueError, OSError) as error:
                 item[version] = None
                 item[f"{version}_error"] = str(error)
         results.append(item)

@@ -8,7 +8,6 @@ from typing import Any
 from app.rag import ABSTENTION, answer_with_rag
 from app.tools import sip_rupee_cost_averaging
 
-
 _NUMBER = r"([0-9]+(?:\.[0-9]+)?)"
 
 
@@ -17,7 +16,7 @@ def _extract_numbers(message: str) -> list[float]:
 
 
 def _extract_navs(message: str) -> list[float] | None:
-    match = re.search(r"\bnavs?\b\s*(?:are|=|:)?\s*([0-9.,\s]+)", message, re.I)
+    match = re.search(r"\bnavs?\b\s*(?:are|=|:)?\s*([0-9.,\s]+)", message, re.IGNORECASE)
     if not match:
         return None
     values = [float(value) for value in re.findall(_NUMBER, match.group(1))]
@@ -28,14 +27,14 @@ def _extract_inputs(message: str) -> dict[str, Any]:
     numbers = _extract_numbers(message)
     navs = _extract_navs(message)
     amount_match = re.search(
-        rf"(?:sip|investment|invest)\D{{0,30}}{_NUMBER}", message, re.I
+        rf"(?:sip|investment|invest)\D{{0,30}}{_NUMBER}", message, re.IGNORECASE
     )
     monthly_sip = float(amount_match.group(1)) if amount_match else None
-    annual_match = re.search(rf"(?:annual|return)\D{{0,20}}{_NUMBER}\s*%", message, re.I)
+    annual_match = re.search(rf"(?:annual|return)\D{{0,20}}{_NUMBER}\s*%", message, re.IGNORECASE)
     annual_return = float(annual_match.group(1)) if annual_match else None
-    years_match = re.search(rf"{_NUMBER}\s*years?", message, re.I)
+    years_match = re.search(rf"{_NUMBER}\s*years?", message, re.IGNORECASE)
     years = float(years_match.group(1)) if years_match else None
-    step_match = re.search(rf"(?:step[- ]?up|top[- ]?up)\D{{0,20}}{_NUMBER}\s*%", message, re.I)
+    step_match = re.search(rf"(?:step[- ]?up|top[- ]?up)\D{{0,20}}{_NUMBER}\s*%", message, re.IGNORECASE)
     step_up = float(step_match.group(1)) if step_match else 0
     if monthly_sip is None and numbers and navs:
         monthly_sip = numbers[0]
@@ -54,14 +53,14 @@ def _needs_calculation(message: str) -> bool:
             r"\b(?:calculate|calculation|monthly\s+sip|navs?|step[- ]?up)\b"
             r"|(?:sip|invest)\D{0,20}\d",
             message,
-            re.I,
+            re.IGNORECASE,
         )
     )
 
 
 def _needs_retrieval(message: str) -> bool:
     return bool(
-        re.search(r"\b(?:what|explain|how|meaning|rupee[- ]?cost|information)\b", message, re.I)
+        re.search(r"\b(?:what|explain|how|meaning|rupee[- ]?cost|information)\b", message, re.IGNORECASE)
     )
 
 

@@ -1,9 +1,8 @@
-import re
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
-
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "sample_records.json"
 PLACEHOLDER_PATTERN = re.compile(r"replace with|add an example", re.IGNORECASE)

@@ -18,7 +18,6 @@ from app.agent_loop import (
 from app.rag import ABSTENTION, answer_with_rag
 from app.tools import sip_rupee_cost_averaging
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEMORY_DB = BASE_DIR / "data" / "agent_memory.sqlite3"
 MEMORY_DB.parent.mkdir(parents=True, exist_ok=True)

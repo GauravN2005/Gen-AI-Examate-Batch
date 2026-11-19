@@ -35,15 +35,17 @@ class FeedbackStoreTests(unittest.TestCase):
             self.assertIn("timestamp", entries[0])
 
     def test_invalid_feedback_is_rejected(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            with self.assertRaises(ValueError):
-                save_feedback(
-                    message_id="message-2",
-                    feedback="invalid",
-                    question="What is SIP?",
-                    response="A SIP invests regularly.",
-                    file_path=Path(directory) / "feedback.jsonl",
-                )
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            self.assertRaises(ValueError),
+        ):
+            save_feedback(
+                message_id="message-2",
+                feedback="invalid",
+                question="What is SIP?",
+                response="A SIP invests regularly.",
+                file_path=Path(directory) / "feedback.jsonl",
+            )
 
 
 if __name__ == "__main__":

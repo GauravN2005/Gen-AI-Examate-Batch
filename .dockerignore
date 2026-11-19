@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+__pycache__
+*.py[cod]
+.env
+.env.*
+!.env.example
+.vscode
+.idea
+data/chroma_db
+data/agent_memory.sqlite3*
+data/feedback.jsonl
+eval
+tests
+docs
+README.MD

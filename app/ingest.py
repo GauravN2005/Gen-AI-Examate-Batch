@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 
 from app.models import Record
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DIR = BASE_DIR / "data" / "raw"
 OUTPUT_FILE = BASE_DIR / "data" / "records.json"
@@ -133,9 +132,8 @@ def extract_warning(soup, heading=None):
 
         text = _meaningful_text(element)
 
-        if any(word in text.lower() for word in keywords):
-            if len(text) > 30:
-                return text[:700]
+        if any(word in text.lower() for word in keywords) and len(text) > 30:
+            return text[:700]
 
     return "No specific warning automatically identified. Review the source page."
 

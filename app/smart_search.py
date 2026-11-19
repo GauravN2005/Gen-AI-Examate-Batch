@@ -6,7 +6,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from app.records import load_records
 
-
 SEARCH_FIELDS = (
     "concept",
     "plain_definition",

@@ -5,7 +5,6 @@ from __future__ import annotations
 from decimal import Decimal, InvalidOperation, getcontext
 from typing import Any
 
-
 getcontext().prec = 28
 MAX_MONTHS = 1200
 SEBI_RUPEE_COST_AVERAGING_SOURCE = (
@@ -71,8 +70,8 @@ def sip_rupee_cost_averaging(
         if not navs:
             raise ValueError("navs must contain at least one positive NAV.")
         nav_values = [_positive(nav, "NAV") for nav in navs]
-        total_invested = Decimal("0")
-        total_units = Decimal("0")
+        total_invested = Decimal(0)
+        total_units = Decimal(0)
         monthly_breakdown = []
         for month, nav in enumerate(nav_values, start=1):
             units = investment / nav
@@ -105,18 +104,18 @@ def sip_rupee_cost_averaging(
     if annual_return <= -100 or annual_return > 1000:
         raise ValueError("annual_return_percent must be greater than -100 and at most 1000.")
     months = _validate_months(years)
-    monthly_rate = (Decimal("1") + annual_return / Decimal("100")) ** (
-        Decimal("1") / Decimal("12")
-    ) - Decimal("1")
-    balance = Decimal("0")
-    total_invested = Decimal("0")
+    monthly_rate = (Decimal(1) + annual_return / Decimal(100)) ** (
+        Decimal(1) / Decimal(12)
+    ) - Decimal(1)
+    balance = Decimal(0)
+    total_invested = Decimal(0)
     monthly_breakdown = []
     for month in range(1, months + 1):
         contribution = investment * (
-            (Decimal("1") + step_up / Decimal("100"))
+            (Decimal(1) + step_up / Decimal(100))
             ** Decimal((month - 1) // 12)
         )
-        balance = (balance + contribution) * (Decimal("1") + monthly_rate)
+        balance = (balance + contribution) * (Decimal(1) + monthly_rate)
         total_invested += contribution
         monthly_breakdown.append(
             {

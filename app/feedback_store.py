@@ -3,10 +3,9 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FEEDBACK_FILE = BASE_DIR / "data" / "feedback.jsonl"
@@ -28,7 +27,7 @@ def save_feedback(
     entry = {
         "message_id": message_id,
         "feedback": feedback,
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "question": question,
         "response": response,
         "comment": comment.strip(),

@@ -3,11 +3,21 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
-from app.main import app
 from app.education_guard import is_recommendation_request, refusal_response
+from app.main import app
 
 
 class EducationGuardTests(unittest.TestCase):
+    def test_health_is_lightweight(self) -> None:
+        client = TestClient(app)
+        response = client.get("/health")
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+        self.assertEqual(payload["status"], "healthy")
+        self.assertIn("provider", payload)
+        self.assertIn("provider_configured", payload)
+        self.assertEqual(payload["chroma"], "not_checked")
+
     def test_blocks_recommendations(self) -> None:
         for question in (
             "Which mutual fund should I buy?",

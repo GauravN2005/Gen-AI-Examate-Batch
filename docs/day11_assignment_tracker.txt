@@ -1,0 +1,10 @@
+# Day 11 assignment tracker entry
+
+CI status: Not verified
+PR URL: Not provided
+PR merge status: Not merged
+Deployment platform: Render (pending manual setup)
+Frontend live URL: Not deployed
+Backend live URL: Not deployed
+Public /health status: Not verified
+Verification date: Not verified

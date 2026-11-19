@@ -1,0 +1,9 @@
+target-version = "py311"
+line-length = 88
+exclude = [
+  ".git",
+  ".venv",
+  "__pycache__",
+  "data",
+  "docs",
+]

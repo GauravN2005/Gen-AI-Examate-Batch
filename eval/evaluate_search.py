@@ -12,8 +12,8 @@ RAW_RESULTS = ROOT / "eval" / "search_results.json"
 def load_questions() -> list[str]:
     text = QUESTIONS_FILE.read_text(encoding="utf-8")
     values = []
-    for block in re.findall(r"^## \d+\..*?(?=^## \d+\.|\Z)", text, re.M | re.S):
-        match = re.search(r"\*\*User question:\*\*\s*(.+?)(?=\n\n\*\*Related)", block, re.S)
+    for block in re.findall(r"^## \d+\..*?(?=^## \d+\.|\Z)", text, re.MULTILINE | re.DOTALL):
+        match = re.search(r"\*\*User question:\*\*\s*(.+?)(?=\n\n\*\*Related)", block, re.DOTALL)
         if match:
             values.append(" ".join(match.group(1).split()))
     if len(values) != 10:
@@ -30,15 +30,15 @@ def main() -> int:
         try:
             hits = query_chunks(question, limit=3)
             results.append({"question": number, "text": question, "results": hits})
-        except Exception as error:
+        except (RuntimeError, ValueError, OSError) as error:
             results.append({"question": number, "text": question, "error": str(error)})
 
     RAW_RESULTS.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     lines = [
         "# Semantic Search Evaluation",
         "",
-        "Results are generated from the actual persistent Chroma collection. "
-        "Relevance labels require manual review.",
+        ("Results are generated from the actual persistent Chroma collection. "
+        "Relevance labels require manual review."),
         "",
         "| Question | Top result | Source | Relevance | Notes |",
         "|---|---|---|---|---|",

@@ -1,11 +1,12 @@
 import json
+import os
 from pathlib import Path
 from typing import Annotated, Any
 
 from fastapi import FastAPI, HTTPException, Query, Response
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel, ConfigDict, Field, field_validator
 from langgraph.types import Command
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.education_guard import is_recommendation_request, refusal_response
 from app.graph import agent_graph
@@ -14,7 +15,6 @@ from app.rag import answer_with_rag
 from app.records import get_by_id, load_records
 from app.smart_search import smart_search
 from app.vectorstore import query_chunks
-
 
 app = FastAPI(title="FundFacts API")
 PROMPT_DIR = Path(__file__).resolve().parent.parent / "prompts"
@@ -129,7 +129,19 @@ def _prompt(filename: str) -> str:
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "healthy", "service": "FundFacts"}
+    provider = os.getenv("LLM_PROVIDER", "gemini").strip().casefold()
+    provider_configured = bool(
+        os.getenv("GROQ_API_KEY", "").strip()
+        if provider == "groq"
+        else os.getenv("GEMINI_API_KEY", "").strip()
+    )
+    return {
+        "status": "healthy",
+        "service": "FundFacts",
+        "provider": provider,
+        "provider_configured": "true" if provider_configured else "false",
+        "chroma": "not_checked",
+    }
 
 
 @app.get("/")

@@ -5,7 +5,6 @@ from typing import Any
 from app.chunking import load_chunks
 from app.embed import embed_query, embed_texts
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 CHROMA_DIR = BASE_DIR / "data" / "chroma_db"
 COLLECTION_NAME = "fundfacts_chunks"
@@ -51,8 +50,10 @@ def index_chunks(
     if rebuild:
         try:
             _client().delete_collection(collection_name)
-        except Exception:
-            pass
+        except Exception as error:
+            raise RuntimeError(
+                "Unable to rebuild the persistent Chroma collection."
+            ) from error
         collection = get_collection(collection_name)
     values = chunks if chunks is not None else load_chunks(
         chunk_size=chunk_size, overlap=overlap

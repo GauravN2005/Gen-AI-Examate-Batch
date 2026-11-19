@@ -2,7 +2,6 @@
 import json
 from pathlib import Path
 
-
 RECORDS_FILE = (
     Path(__file__).resolve().parent.parent
     / "data"

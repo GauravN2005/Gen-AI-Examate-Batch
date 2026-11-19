@@ -6,8 +6,7 @@ from typing import Any
 
 from app.chunking import load_chunks
 from app.rag import ABSTENTION, answer_with_rag
-from app.vectorstore import count_chunks, index_chunks
-
+from app.vectorstore import index_chunks
 
 ROOT = Path(__file__).resolve().parent.parent
 EVAL_SET = ROOT / "eval" / "eval_set.json"
@@ -78,7 +77,7 @@ def main() -> int:
                         collection_name=collection,
                     )
                     break
-                except Exception as exc:
+                except (OSError, RuntimeError, ValueError) as exc:
                     error = type(exc).__name__
                     if attempt < MAX_RETRIES:
                         delay = REQUEST_DELAY_SECONDS * (2**attempt)
@@ -125,8 +124,8 @@ def main() -> int:
     lines = [
         "# RAG Configuration Comparison",
         "",
-        "Automated metrics are calculated from recorded outputs. Factual "
-        "correctness and source relevance require human review.",
+        ("Automated metrics are calculated from recorded outputs. Factual "
+        "correctness and source relevance require human review."),
         "",
         "| Metric | Config A (400, k=3) | Config B (800, k=5) |",
         "|---|---:|---:|",
@@ -182,7 +181,7 @@ def main() -> int:
             and case["should_answer"]
         )
         format_validity = sum(
-            set(("answer", "citations", "confidence"))
+            {"answer", "citations", "confidence"}
             <= set(r["response"])
             and r["response"]["confidence"] in {"high", "medium", "low"}
             for r in valid
@@ -221,11 +220,11 @@ def main() -> int:
         f"| Average latency | {metrics_a['latency']} | {metrics_b['latency']} |",
         "| Overall winner | Determined below | Determined below |",
         "",
-        f"Provider: {PROVIDER}; model: {MODEL}; completed cases: "
-        f"{metrics_a['valid']}/15 and {metrics_b['valid']}/15.",
-        "Winner rule: prioritize answerability, citation validity, source "
+        (f"Provider: {PROVIDER}; model: {MODEL}; completed cases: "
+        f"{metrics_a['valid']}/15 and {metrics_b['valid']}/15."),
+        ("Winner rule: prioritize answerability, citation validity, source "
         "relevance, and response format; use lower latency as tie-breaker. "
-        "Factual correctness still requires human review.",
+        "Factual correctness still requires human review."),
     ]
     if metrics_a["valid"] == 15 and metrics_b["valid"] == 15:
         def score(metrics: dict[str, Any]) -> tuple[int, int, int, int, float]:
