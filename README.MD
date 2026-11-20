@@ -547,3 +547,29 @@ The actual public backend URL must replace `NOT_DEPLOYED` only after manual
 deployment and verification. Instructions are in
 [docs/day11_deployment.md](docs/day11_deployment.md), and the manual PR process
 is in [docs/day11_pr_instructions.md](docs/day11_pr_instructions.md).
+
+## Day 12 – CI/CD and Live Deployment
+
+[![CI](https://github.com/GauravN2005/Gen-AI-Examate-Batch/actions/workflows/ci.yml/badge.svg)](https://github.com/GauravN2005/Gen-AI-Examate-Batch/actions/workflows/ci.yml)
+
+Day 12 reuses and completes the existing GitHub Actions, Docker, FastAPI, and
+Streamlit deployment preparation.
+
+| Item | Status |
+|---|---|
+| Ruff | Passed locally |
+| Pytest | Passed locally |
+| Docker build | Docker CLI found; daemon unavailable locally |
+| GitHub Actions | Prepared; real run not verified |
+| PR URL | `NOT_PROVIDED` |
+| PR merge status | Not merged |
+| Deployment platform | Render, pending manual setup |
+| Public backend URL | `NOT_DEPLOYED` |
+| Public frontend URL | `NOT_DEPLOYED` |
+| Public `/health` URL | `NOT_DEPLOYED` |
+| Public `/health` status | Not verified |
+
+Manual processes are documented in
+[docs/day12_pr_guide.md](docs/day12_pr_guide.md) and
+[docs/day12_deployment.md](docs/day12_deployment.md). The exact tracker text is
+in [docs/day12_assignment_tracker.txt](docs/day12_assignment_tracker.txt).
