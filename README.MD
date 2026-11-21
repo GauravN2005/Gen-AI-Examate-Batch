@@ -1,3 +1,56 @@
+## Project Overview
+
+FundFacts is a SEBI-grounded mutual-fund education assistant. SchemeSaathi
+uses retrieval-augmented generation to answer beginner questions from retrieved
+SEBI reference chunks and avoids personalised investment recommendations.
+The project includes an illustrative SIP calculator, LangGraph agent approval
+workflow, FastAPI backend, Streamlit interface, and citation display.
+
+## Problem Statement
+
+Beginners often encounter mutual-fund terminology such as SIP, NAV, expense
+ratios, and Riskometer without a simple source-grounded explanation. FundFacts
+helps make these concepts understandable while keeping unsupported or
+personalised investment advice outside the assistant's scope.
+
+## Solution
+
+SchemeSaathi combines FastAPI, TF-IDF and semantic retrieval, ChromaDB,
+SEBI document chunks, an education-not-advice guard, and a provider wrapper
+for Groq or Gemini. Users can read grounded educational answers, expand real
+source citations, run illustrative SIP calculations with approval, and submit
+thumbs-up/down feedback locally.
+
+## Features
+
+- SEBI-grounded RAG answers and citation display.
+- Groq/Gemini provider wrapper with structured provider usage metadata.
+- SIP NAV-based calculation and assumed-return projection.
+- LangGraph conversation memory and explicit SIP approval.
+- Deterministic education-not-advice refusal guard.
+- In-memory TTL cache for safe repeated `/ask` requests.
+- JSON request latency and provider usage logging.
+- Streamlit chat interface and local JSON Lines feedback.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    UI[Streamlit UI] --> API[FastAPI backend]
+    API --> GUARD[Education-not-advice guard]
+    GUARD --> RAG[RAG pipeline]
+    GUARD --> AGENT[LangGraph agent]
+    RAG --> CHROMA[ChromaDB]
+    CHROMA --> CHUNKS[SEBI document chunks]
+    RAG --> LLM[Groq or Gemini provider]
+    AGENT --> SIP[SIP calculator]
+    API --> CACHE[TTL cache and observability]
+    UI --> FEEDBACK[Local feedback JSONL]
+```
+
+## Demo Video
+
+Demo video: To be added after recording.
 
 # Day 1:
 Product: FundFacts is a beginner-friendly mutual fund education platform.
@@ -578,3 +631,63 @@ Manual processes are documented in
 [docs/day12_pr_guide.md](docs/day12_pr_guide.md) and
 [docs/day12_deployment.md](docs/day12_deployment.md). The exact tracker text is
 in [docs/day12_assignment_tracker.txt](docs/day12_assignment_tracker.txt).
+
+## Production notes
+
+Production request handling includes structured JSON logs for request ID,
+endpoint, HTTP status, elapsed milliseconds, cache state, provider/model,
+and provider token fields when available. API keys and full user questions or
+answers are not logged by default.
+
+Safe, cacheable `/ask` responses use an in-memory TTL cache. The default TTL
+is 300 seconds and the default maximum size is 128 entries. Cache entries are
+per process and cleared on restart. Pending approvals and SIP actions are not
+cached, provider errors are not cached, and the cache key includes normalized
+input, top-k, collection, provider, model, prompt version, and a knowledge-base
+hash.
+
+The configured input limit is 2,000 characters. Agent NAV lists are limited to
+1,200 values. Oversized or blank inputs are rejected instead of silently
+truncated. Cached `/ask` results retain their original citations and are
+invalidated by a knowledge-base hash or cache TTL.
+
+The prompt-injection test uses controlled retrieved text containing malicious
+instructions and verifies that RAG treats retrieved documents as untrusted
+reference data and that the education guard remains effective. It is a mocked
+structural test, not a complete live adversarial-security claim.
+
+The benchmark script in [eval/production_benchmark.py](eval/production_benchmark.py)
+ran 20 mocked local `TestClient` requests against repeated educational questions.
+It did not make live Groq or Gemini calls.
+
+| Metric | Measured result |
+|---|---:|
+| Requests tested | 20 |
+| Average latency | 9.944 ms |
+| Median latency | 7.841 ms |
+| P95 latency | 10.480 ms |
+| Cache hit rate | 80.0% |
+| Cache miss rate | 20.0% |
+| Average input tokens | unavailable |
+| Average output tokens | unavailable |
+| Input length limit | 2,000 characters |
+| Prompt-injection test | Passed in mocked structural test |
+| Live benchmark status | Incomplete / not run |
+
+## Results
+
+| Result | Measured or current status |
+|---|---|
+| RAG evaluation questions | 15 cases for each configuration |
+| RAG winner | Configuration B; 10/15 answerability accuracy |
+| Unsupported-question abstention | 2/2 for both configurations |
+| Citation validity | 5/15 for both configurations |
+| Source relevance | 7/13 for Configuration A; 8/13 for Configuration B |
+| CI status | Prepared; real GitHub run status pending |
+| Mock production benchmark | 20 requests; 9.944 ms average; 80.0% hit rate |
+| Prompt-injection test | Passed in mocked structural testing |
+| Public deployment | Not verified |
+
+The existing genuine RAG metrics are in
+[eval/rag_comparison.md](eval/rag_comparison.md). Production benchmark data is in
+[eval/production_results.json](eval/production_results.json).

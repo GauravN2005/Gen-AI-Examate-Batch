@@ -23,6 +23,7 @@ BACKEND_URL = os.getenv(
     os.getenv("FUNFACTS_BACKEND_URL", "http://127.0.0.1:8000"),
 ).rstrip("/")
 FEEDBACK_FILE = ROOT / "data" / "feedback.jsonl"
+MAX_INPUT_LENGTH = int(os.getenv("FUNFACTS_MAX_INPUT_LENGTH", "2000"))
 
 
 def _initialise_state() -> None:
@@ -162,6 +163,11 @@ def _render_feedback(message: dict[str, Any]) -> None:
 
 
 def _submit(message: str) -> None:
+    if len(message) > MAX_INPUT_LENGTH:
+        st.error(
+            f"Please keep your message to {MAX_INPUT_LENGTH} characters or fewer."
+        )
+        return
     st.session_state.messages.append(
         {"id": str(uuid4()), "role": "user", "question": message, "answer": message}
     )

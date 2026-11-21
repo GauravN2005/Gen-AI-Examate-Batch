@@ -20,6 +20,16 @@ class LLMProviderError(LLMError):
 load_dotenv()
 
 
+def _usage_value(usage: Any, attribute: str, key: str) -> int | None:
+    if usage is None:
+        return None
+    if isinstance(usage, dict):
+        value = usage.get(key)
+    else:
+        value = getattr(usage, attribute, None)
+    return value if isinstance(value, int) else None
+
+
 def _client():
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not api_key:
@@ -104,7 +114,18 @@ def _generate_groq(
     text = response.choices[0].message.content if response.choices else None
     if not isinstance(text, str) or not text.strip():
         raise LLMProviderError("Groq returned an empty response.")
-    return _parse_json(text)
+    parsed = _parse_json(text)
+    usage = getattr(response, "usage", None)
+    parsed["_usage"] = {
+        "provider": "groq",
+        "model": model,
+        "input_tokens": _usage_value(usage, "prompt_tokens", "prompt_tokens"),
+        "output_tokens": _usage_value(
+            usage, "completion_tokens", "completion_tokens"
+        ),
+        "total_tokens": _usage_value(usage, "total_tokens", "total_tokens"),
+    }
+    return parsed
 
 
 def generate_chat_response(
@@ -150,4 +171,19 @@ def generate_chat_response(
     text = getattr(response, "text", None)
     if not isinstance(text, str) or not text.strip():
         raise LLMProviderError("Gemini returned an empty response.")
-    return _parse_json(text)
+    parsed = _parse_json(text)
+    usage = getattr(response, "usage_metadata", None)
+    parsed["_usage"] = {
+        "provider": "gemini",
+        "model": model,
+        "input_tokens": _usage_value(
+            usage, "prompt_token_count", "prompt_token_count"
+        ),
+        "output_tokens": _usage_value(
+            usage, "candidates_token_count", "candidates_token_count"
+        ),
+        "total_tokens": _usage_value(
+            usage, "total_token_count", "total_token_count"
+        ),
+    }
+    return parsed

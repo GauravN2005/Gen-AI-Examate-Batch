@@ -69,6 +69,7 @@ def _clarify(state: AgentState) -> AgentState:
 
 def _rag(state: AgentState) -> AgentState:
     result = answer_with_rag(state["message"])
+    usage = result.pop("_usage", None)
     return {
         "response": {
             "status": "completed",
@@ -77,6 +78,7 @@ def _rag(state: AgentState) -> AgentState:
             "citations": result["citations"],
             "confidence": result["confidence"],
             "abstained": result["answer"] == ABSTENTION,
+            "_usage": usage,
         }
     }
 
@@ -136,6 +138,8 @@ def _execute(state: AgentState) -> AgentState:
         context = state["educational_context"]
         response["educational_context"] = context
         response["citations"] = context.get("citations", [])
+        if context.get("_usage"):
+            response["_usage"] = context["_usage"]
     return {"response": response}
 
 

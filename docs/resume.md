@@ -1,0 +1,3 @@
+- Built a SEBI-grounded FundFacts RAG architecture with FastAPI, ChromaDB, TF-IDF search, provider abstractions, citation-backed responses, and structured production observability.
+- Developed a LangGraph SIP agent with deterministic calculations, human approval, conversation isolation, and a rule-based education-not-advice guard.
+- Added CI, Docker deployment configuration, automated testing, caching, input validation, and portfolio documentation for a production-oriented Python application.

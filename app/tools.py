@@ -69,6 +69,8 @@ def sip_rupee_cost_averaging(
             raise ValueError("Provide either navs or annual return assumptions, not both.")
         if not navs:
             raise ValueError("navs must contain at least one positive NAV.")
+        if len(navs) > MAX_MONTHS:
+            raise ValueError(f"navs must contain no more than {MAX_MONTHS} values.")
         nav_values = [_positive(nav, "NAV") for nav in navs]
         total_invested = Decimal(0)
         total_units = Decimal(0)

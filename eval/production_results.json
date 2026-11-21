@@ -1,0 +1,22 @@
+{
+  "evaluation_date": "2026-11-21T14:09:29.173080+00:00",
+  "environment": "local TestClient",
+  "location": "local",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "measurement_type": "mocked",
+  "llm_calls": "mocked",
+  "requests_tested": 20,
+  "cold_cache": true,
+  "warm_cache": true,
+  "average_latency_ms": 9.944,
+  "median_latency_ms": 7.841,
+  "p95_latency_ms": 10.48,
+  "cache_hit_rate_percent": 80.0,
+  "cache_miss_rate_percent": 20.0,
+  "failed_request_count": 0,
+  "average_input_tokens": null,
+  "average_output_tokens": null,
+  "cache_ttl_seconds": 300.0,
+  "cache_max_entries": 128
+}

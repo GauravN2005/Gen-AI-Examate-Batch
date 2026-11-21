@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -8,16 +9,71 @@ from fastapi.responses import RedirectResponse
 from langgraph.types import Command
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+from app.cache import TTLCache
 from app.education_guard import is_recommendation_request, refusal_response
 from app.graph import agent_graph
 from app.llm import LLMConfigurationError, LLMError, generate_chat_response
+from app.observability import ObservabilityMiddleware, set_request_metrics
 from app.rag import answer_with_rag
 from app.records import get_by_id, load_records
 from app.smart_search import smart_search
 from app.vectorstore import query_chunks
 
 app = FastAPI(title="FundFacts API")
+app.add_middleware(ObservabilityMiddleware)
 PROMPT_DIR = Path(__file__).resolve().parent.parent / "prompts"
+ASK_CACHE = TTLCache()
+MAX_INPUT_LENGTH = int(os.getenv("FUNFACTS_MAX_INPUT_LENGTH", "2000"))
+MAX_NAV_VALUES = int(os.getenv("FUNFACTS_MAX_NAV_VALUES", "1200"))
+
+
+def _knowledge_version() -> str:
+    paths = (
+        PROMPT_DIR / "system_prompt.txt",
+        PROMPT_DIR / "task_prompt_v2.txt",
+        PROMPT_DIR.parent / "data" / "records.json",
+    )
+    digest = hashlib.sha256()
+    for path in paths:
+        if path.exists():
+            digest.update(path.read_bytes())
+    return digest.hexdigest()[:16]
+
+
+def _normalised_cache_key(
+    question: str,
+    top_k: int,
+    collection_name: str = "fundfacts_chunks",
+) -> str:
+    provider = os.getenv("LLM_PROVIDER", "gemini").strip().casefold()
+    model = (
+        os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+        if provider == "groq"
+        else os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+    )
+    text = " ".join(question.strip().split()).casefold()
+    raw = "|".join(
+        (
+            text,
+            str(top_k),
+            collection_name,
+            provider,
+            model,
+            "rag-prompt-v1",
+            _knowledge_version(),
+        )
+    )
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
+def _active_provider_model() -> tuple[str, str]:
+    provider = os.getenv("LLM_PROVIDER", "gemini").strip().casefold()
+    model = (
+        os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+        if provider == "groq"
+        else os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+    )
+    return provider, model
 
 
 class QuestionRequest(BaseModel):
@@ -25,7 +81,7 @@ class QuestionRequest(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    message: str = Field(..., min_length=1)
+    message: str = Field(..., min_length=1, max_length=MAX_INPUT_LENGTH)
 
     @field_validator("message")
     @classmethod
@@ -38,7 +94,7 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     confidence: str
-    follow_up: str
+    follow_up: str = ""
 
     @field_validator("confidence")
     @classmethod
@@ -49,8 +105,8 @@ class ChatResponse(BaseModel):
 
 
 class AskRequest(BaseModel):
-    question: str = Field(..., min_length=1)
-    top_k: int = Field(default=3, gt=0)
+    question: str = Field(..., min_length=1, max_length=MAX_INPUT_LENGTH)
+    top_k: int = Field(default=3, gt=0, le=20)
 
     @field_validator("question")
     @classmethod
@@ -82,8 +138,8 @@ class AskResponse(BaseModel):
 
 
 class AgentRequest(BaseModel):
-    thread_id: str = Field(..., min_length=1)
-    message: str | None = None
+    thread_id: str = Field(..., min_length=1, max_length=128)
+    message: str | None = Field(default=None, max_length=MAX_INPUT_LENGTH)
     approved: bool | None = None
 
     @field_validator("thread_id")
@@ -243,6 +299,14 @@ def chat(request: ChatRequest) -> ChatResponse:
             system_prompt=_prompt("system_prompt.txt"),
             task_prompt=task_prompt,
         )
+        usage = result.pop("_usage", None)
+        provider, model = _active_provider_model()
+        set_request_metrics(
+            cache="not_applicable",
+            provider=usage.get("provider") if usage else provider,
+            model=usage.get("model") if usage else model,
+            usage=usage,
+        )
         return ChatResponse.model_validate(result)
     except LLMConfigurationError as error:
         raise HTTPException(status_code=503, detail=str(error)) from error
@@ -267,12 +331,40 @@ def chat_help() -> dict[str, str]:
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest) -> AskResponse:
     if is_recommendation_request(request.question):
+        set_request_metrics(cache="not_applicable")
         raise HTTPException(
             status_code=400,
             detail=refusal_response(),
         )
+    cache_key = _normalised_cache_key(request.question, request.top_k)
+    cached = ASK_CACHE.get(cache_key)
+    if cached is not None:
+        set_request_metrics(
+            cache="hit",
+            provider=os.getenv("LLM_PROVIDER", "gemini").strip().casefold(),
+            model=(
+                os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+                if os.getenv("LLM_PROVIDER", "gemini").strip().casefold() == "groq"
+                else os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+            ),
+            usage=None,
+        )
+        return AskResponse(question=request.question, **cached)
     try:
         result = answer_with_rag(request.question, top_k=request.top_k)
+        usage = result.pop("_usage", None)
+        set_request_metrics(
+            cache="miss",
+            provider=usage.get("provider") if usage else os.getenv("LLM_PROVIDER", "gemini").strip().casefold(),
+            model=usage.get("model") if usage else (
+                os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+                if os.getenv("LLM_PROVIDER", "gemini").strip().casefold() == "groq"
+                else os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+            ),
+            usage=usage,
+        )
+        if result["answer"] != "I don't know":
+            ASK_CACHE.set(cache_key, dict(result))
         return AskResponse(question=request.question, **result)
     except ValueError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error
@@ -292,6 +384,7 @@ def ask(request: AskRequest) -> AskResponse:
 @app.post("/agent")
 def agent(request: AgentRequest) -> AgentResponse:
     if request.message is not None and is_recommendation_request(request.message):
+        set_request_metrics(cache="not_applicable")
         raise HTTPException(
             status_code=400,
             detail=refusal_response(),
@@ -332,8 +425,17 @@ def agent(request: AgentRequest) -> AgentResponse:
     if interrupts:
         pending = interrupts[0]
         value = getattr(pending, "value", pending)
+        set_request_metrics(cache="not_applicable")
         return AgentResponse.model_validate({"thread_id": request.thread_id, **value})
     response = result.get("response")
     if not response:
         raise HTTPException(status_code=500, detail="The agent returned no response.")
+    usage = response.pop("_usage", None)
+    provider, model = _active_provider_model()
+    set_request_metrics(
+        cache="not_applicable",
+        provider=usage.get("provider") if usage else provider,
+        model=usage.get("model") if usage else model,
+        usage=usage,
+    )
     return AgentResponse.model_validate({"thread_id": request.thread_id, **response})

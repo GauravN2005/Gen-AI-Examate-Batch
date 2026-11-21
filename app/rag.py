@@ -78,9 +78,15 @@ def answer_with_rag(
         task_prompt=_prompt(retrieved),
     )
 
+    usage = generated.pop("_usage", None)
     answer = str(generated.get("answer", "")).strip()
     if not answer or answer == ABSTENTION:
-        return {"answer": ABSTENTION, "citations": [], "confidence": "low"}
+        return {
+            "answer": ABSTENTION,
+            "citations": [],
+            "confidence": "low",
+            "_usage": usage,
+        }
 
     citations = [
         {
@@ -98,4 +104,5 @@ def answer_with_rag(
         "answer": answer,
         "citations": citations,
         "confidence": confidence,
+        "_usage": usage,
     }
