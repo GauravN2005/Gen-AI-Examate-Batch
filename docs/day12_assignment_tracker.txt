@@ -4,7 +4,7 @@ CI status: Not verified on GitHub
 Ruff status: Passed locally
 Pytest status: 16 tests passed locally
 Docker build status: Docker CLI found; build blocked because Docker daemon is not running
-PR URL: Not provided
+PR URL: Not provided - pending feature-branch PR
 PR merge status: Not merged
 Deployment platform: Render, pending manual setup
 Backend live URL: Not deployed

@@ -569,6 +569,11 @@ Streamlit deployment preparation.
 | Public `/health` URL | `NOT_DEPLOYED` |
 | Public `/health` status | Not verified |
 
+Manual PR and live-deployment evidence is documented in
+[docs/day12_fix_guide.md](docs/day12_fix_guide.md). Replace `NOT_DEPLOYED`,
+`NOT_PROVIDED`, and `Not merged` only after GitHub and Render provide verified
+results.
+
 Manual processes are documented in
 [docs/day12_pr_guide.md](docs/day12_pr_guide.md) and
 [docs/day12_deployment.md](docs/day12_deployment.md). The exact tracker text is

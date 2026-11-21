@@ -3,6 +3,7 @@ services:
     name: fundfacts-api
     runtime: docker
     dockerfilePath: ./Dockerfile
+    dockerContext: .
     healthCheckPath: /health
     envVars:
       - key: LLM_PROVIDER
