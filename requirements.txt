@@ -1,10 +1,8 @@
-# FundFacts Day 2
-# No external dependencies required.
+# FundFacts Backend Production Requirements
 requests
 beautifulsoup4
 fastapi
 uvicorn
-pandas
 scikit-learn
 google-genai
 groq
@@ -13,6 +11,3 @@ chromadb
 sentence-transformers
 langgraph
 langgraph-checkpoint-sqlite
-streamlit
-ruff
-pytest
