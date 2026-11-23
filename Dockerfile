@@ -13,12 +13,16 @@ RUN apt-get update \
 
 COPY requirements.txt .
 RUN pip install --upgrade pip \
+    && pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
     && pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 COPY prompts ./prompts
 COPY data/records.json ./data/records.json
 COPY data/sample_records.json ./data/sample_records.json
+
+# Pre-index vector database and pre-download embedding model for instant startup
+RUN python -m app.vectorstore
 
 EXPOSE 8000
 
