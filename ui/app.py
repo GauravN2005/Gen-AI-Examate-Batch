@@ -15,6 +15,11 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+# When Streamlit runs ui/app.py, it registers this file as module 'app' in sys.modules.
+# Remove it so 'from app...' resolves to the actual app/ package on sys.path.
+if "app" in sys.modules and not hasattr(sys.modules["app"], "__path__"):
+    del sys.modules["app"]
+
 from app.education_guard import is_recommendation_request, refusal_response
 from app.feedback_store import save_feedback
 
