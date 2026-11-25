@@ -189,7 +189,7 @@ def health() -> dict[str, str]:
     provider_configured = bool(
         os.getenv("GROQ_API_KEY", "").strip()
         if provider == "groq"
-        else os.getenv("GEMINI_API_KEY", "").strip()
+        else (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
     )
     return {
         "status": "healthy",

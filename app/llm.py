@@ -31,7 +31,7 @@ def _usage_value(usage: Any, attribute: str, key: str) -> int | None:
 
 
 def _client():
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
     if not api_key:
         raise LLMConfigurationError(
             "Gemini is not configured. Set GEMINI_API_KEY in .env."

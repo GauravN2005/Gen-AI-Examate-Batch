@@ -1,21 +1,16 @@
-import os
+"""Lightweight ONNX embedding function without PyTorch."""
+
 from collections.abc import Iterable
 from functools import lru_cache
-
-DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
 @lru_cache(maxsize=1)
 def get_embedding_model(model_name: str | None = None):
-    name = model_name or os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL)
     try:
-        from sentence_transformers import SentenceTransformer
-        return SentenceTransformer(name)
+        import chromadb.utils.embedding_functions as ef
+        return ef.DefaultEmbeddingFunction()
     except Exception as error:
-        raise RuntimeError(
-            f"Unable to load embedding model '{name}'. "
-            "The model may need to download on first use."
-        ) from error
+        raise RuntimeError("Unable to load ONNX embedding model.") from error
 
 
 def embed_texts(texts: Iterable[str], model_name: str | None = None) -> list[list[float]]:
@@ -23,8 +18,11 @@ def embed_texts(texts: Iterable[str], model_name: str | None = None) -> list[lis
     if not values or any(not isinstance(text, str) or not text.strip() for text in values):
         raise ValueError("Cannot embed an empty text input.")
     model = get_embedding_model(model_name)
-    vectors = model.encode(values, convert_to_numpy=True, show_progress_bar=False)
-    return vectors.tolist()
+    vectors = model(values)
+    return [
+        v.tolist() if hasattr(v, "tolist") else [float(x) for x in v]
+        for v in vectors
+    ]
 
 
 def embed_query(query: str, model_name: str | None = None) -> list[float]:

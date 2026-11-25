@@ -32,6 +32,12 @@ thumbs-up/down feedback locally.
 - JSON request latency and provider usage logging.
 - Streamlit chat interface and local JSON Lines feedback.
 
+## Documentation
+
+- [Interview Preparation](docs/interview.md): 60-second elevator pitch, hardest technical problem (STAR method), and answers to 10 likely technical interview questions.
+- [Project Progress](PROGRESS.md): Day-by-day checklist tracking implementation status from Day 1 to Day 14.
+- [Resume Highlights](docs/resume.md): Key engineering bullet points for technical resumes and portfolio.
+
 ## Architecture
 
 ```mermaid

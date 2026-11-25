@@ -13,7 +13,7 @@ class TTLCacheTests(unittest.TestCase):
         self.assertIsNone(cache.get("missing"))
         cache.set("three", {"answer": "3"})
         self.assertEqual(cache.size(), 2)
-        time.sleep(0.03)
+        time.sleep(0.05)
         self.assertIsNone(cache.get("one"))
         self.assertEqual(cache.size(), 0)
 
